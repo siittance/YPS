@@ -1,0 +1,22 @@
+﻿<Window x:Class="Yarik.TechnikMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yarik"
+        mc:Ignorable="d"
+        Title="Главное окно техника" Background="#D2E6F3" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Техник" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#032E66"/>
+        <Button Grid.Row="2" Background="#6C99C3" Width="600" Height="70" Content="Учет обслуживание" Foreground="White"  FontSize="14"/>
+        <Button Grid.Row="3" Background="#FF0000" Width="600" Height="70" Content="Выйти"  FontSize="14" Foreground="White"/>
+    </Grid>
+</Window>

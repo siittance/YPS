@@ -1,14 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\siitt\\source\\repos\\Yarik\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\YPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yarik\\yarik\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\administrator\\source\\repos\\yps\\yarik\\technikmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\technikmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\Administrator\\source\\repos\\YPS\\yarik\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\administrator\\source\\repos\\yps\\yarik\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\Yarik\\yarik\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\administrator\\source\\repos\\yps\\yarik\\menedshermain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\menedshermain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\administrator\\source\\repos\\yps\\yarik\\menedshermain.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\menedshermain.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\administrator\\source\\repos\\yps\\yarik\\direktormain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\direktormain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,32 +33,148 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 287,
-          "SelectedChildIndex": 0,
+          "DockedHeight": 130,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TechnikMain.xaml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\TechnikMain.xaml",
+              "RelativeDocumentMoniker": "Yarik\\TechnikMain.xaml",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\TechnikMain.xaml",
+              "RelativeToolTip": "Yarik\\TechnikMain.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T13:28:42.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MenedsherMain.xaml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Source\\Repos\\YPS\\Yarik\\MenedsherMain.xaml",
+              "RelativeDocumentMoniker": "Yarik\\MenedsherMain.xaml",
+              "ToolTip": "C:\\Users\\Administrator\\Source\\Repos\\YPS\\Yarik\\MenedsherMain.xaml",
+              "RelativeToolTip": "Yarik\\MenedsherMain.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T13:09:35.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\Yarik\\Yarik\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Yarik\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\Yarik\\Yarik\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MainWindow.xaml",
               "RelativeToolTip": "Yarik\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-22T22:13:52.961Z",
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MenedsherMain.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MenedsherMain.xaml.cs",
+              "RelativeDocumentMoniker": "Yarik\\MenedsherMain.xaml.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MenedsherMain.xaml.cs",
+              "RelativeToolTip": "Yarik\\MenedsherMain.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T13:12:19.143Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\Yarik\\Yarik\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Yarik\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\Yarik\\Yarik\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\MainWindow.xaml.cs",
               "RelativeToolTip": "Yarik\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T22:13:50.573Z"
+              "WhenOpened": "2025-01-22T22:13:50.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DirektorMain.xaml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\DirektorMain.xaml",
+              "RelativeDocumentMoniker": "Yarik\\DirektorMain.xaml",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\YPS\\Yarik\\DirektorMain.xaml",
+              "RelativeToolTip": "Yarik\\DirektorMain.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T11:00:10.631Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 180,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 178,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 242,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }

@@ -15,14 +15,19 @@ using System.Windows.Shapes;
 
 namespace Yarik
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void WTF(object sender, RoutedEventArgs e)
+        {
+            TechnikMain direktorMain = new TechnikMain();
+            direktorMain.Show();
+            this.Close();
         }
     }
 }
