@@ -23,5 +23,33 @@ namespace Yarik
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void YpravSotr(object sender, RoutedEventArgs e)
+        {
+            EmploWIndow emploWIndow = new EmploWIndow();
+            emploWIndow.Show();
+            this.Close();
+        }
+
+        private void YpravSkladom(object sender, RoutedEventArgs e)
+        {
+            YpravleSkladom ypravleSkladom = new YpravleSkladom();
+            ypravleSkladom.Show();
+            this.Close();
+        }
+
+        private void ProsmotrOtchetov(object sender, RoutedEventArgs e)
+        {
+            FormirovanieOtchetov formirovanieOtchetov = new FormirovanieOtchetov(this);
+            formirovanieOtchetov.Show();
+            this.Hide();
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+    }
 }

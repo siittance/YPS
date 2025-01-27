@@ -21,6 +21,7 @@ namespace Yarik
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public decimal Salary { get; set; }
+        public string Passwordd { get; set; }
         public int EmployeesRole_ID { get; set; }
     
         public virtual EmployeesRole EmployeesRole { get; set; }

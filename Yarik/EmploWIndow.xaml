@@ -1,0 +1,65 @@
+﻿<Window x:Class="Yarik.EmploWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yarik"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Окно сотрудники" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Имя" Padding="10" FontSize="14" x:Name="EmploName" />
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Фамилия" Padding="10" FontSize="14" x:Name="EmploSurname"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Отчество" Padding="10" FontSize="14" x:Name="EmploMiddleName"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Зарплата" Padding="10" FontSize="14" x:Name="Salary" />
+        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Телефон" Padding="10" FontSize="14" x:Name="PhoneNumber" />
+        <TextBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14" x:Name="Email" />
+        <TextBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Пароль" Padding="10" FontSize="14" x:Name="Password"/>
+        <ComboBox Grid.Row="7" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Должность" Padding="10" FontSize="14" x:Name="ComboRole" DisplayMemberPath="NameOfRole"/>
+        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>
+        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" Click="Delete"/>
+        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>
+        <DataGrid Grid.RowSpan="11" Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="EmploWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="EmploPerenos">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding EmployeesSurname}" Header="Фамилия сотрудника"/>
+                <DataGridTextColumn Binding="{Binding EmployeesName}" Header="Имя сотрудника"/>
+                <DataGridTextColumn Binding="{Binding EmployeesMiddleName}" Header="Отчество сотрудника"/>
+                <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер телефона"/>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Почта"/>
+                <DataGridTextColumn Binding="{Binding Salary}" Header="Зарплата"/>
+                <DataGridTextColumn Binding="{Binding Passwordd}" Header="Пароль"/>
+                <DataGridTextColumn Binding="{Binding EmployeesRole.EmployeesRoleName}" Header="Роль"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>
+        <TextBlock Background="#D2E6F3" Text="Сотрудники" Grid.Column="1" Foreground="#032E66" FontSize="20" VerticalAlignment="Center"/>
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" />
+        <Button Background="#6C99C3" Width="30" Height="30"  BorderThickness="0" Click="Back">
+            <Button.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,30,30" />
+            </Button.Clip>
+        </Button>
+        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        
+    </Grid>
+</Window>

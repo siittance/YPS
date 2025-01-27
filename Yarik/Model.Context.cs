@@ -13,10 +13,10 @@ namespace Yarik
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InstrumentServicesEntities : DbContext
+    public partial class InstrumentServicesEntities1 : DbContext
     {
-        public InstrumentServicesEntities()
-            : base("name=InstrumentServicesEntities")
+        public InstrumentServicesEntities1()
+            : base("name=InstrumentServicesEntities1")
         {
         }
     
@@ -36,7 +36,6 @@ namespace Yarik
         public virtual DbSet<Maintenance> Maintenance { get; set; }
         public virtual DbSet<MaintenanceStatus> MaintenanceStatus { get; set; }
         public virtual DbSet<Rentals> Rentals { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WorkTypes> WorkTypes { get; set; }
     }
 }

@@ -17,8 +17,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Text="Авторизация" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#032E66"/>
-        <TextBox Grid.Row="1" Width="350" Background="White" Height="50" materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="2" Width="350" Background="White" Height="50" materialDesign:HintAssist.Hint="Пароль" Padding="10" FontSize="14"/>
-        <Button Grid.Row="3" Background="#6C99C3" Width="350" Content="Войти" Click="WTF" FontSize="14"/>
+        <TextBox Grid.Row="1" Width="350" Background="White" Height="50" materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14" x:Name="PochtaText"/>
+        <PasswordBox Grid.Row="2" Width="350" Background="White" Height="50" materialDesign:HintAssist.Hint="Пароль" Padding="10" FontSize="14" x:Name="PasswordText"/>
+        <Button Grid.Row="3" Background="#6C99C3" Width="350" Content="Войти" Click="Auth" FontSize="14"/>
     </Grid>
 </Window>

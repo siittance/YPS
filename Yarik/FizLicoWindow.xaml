@@ -1,0 +1,75 @@
+﻿<Window x:Class="Yarik.FizLicoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yarik"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Окно физического лица" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название компании" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Имя КЛ" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Фамилия КЛ" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Отчество КЛ" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Телефон" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Паспортные данные" Padding="10" FontSize="14"/>
+        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" />
+        <DataGrid Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="ClientsWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CompanyName}" Header="Название компании"/>
+                <DataGridTextColumn Binding="{Binding ClientName}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding ClientSurname}" Header="Фамилия"/>
+                <DataGridTextColumn Binding="{Binding ClientMiddleName}" Header="Отчество"/>
+                <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер телефона"/>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Почта"/>
+                <DataGridTextColumn Binding="{Binding PassportData}" Header="Паспортные данные"/>
+                <DataGridTextColumn Binding="{Binding ClientAddress}" Header="Адрес"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>
+        <Border CornerRadius="10" Background="#6C99C3" Grid.Column="1" Height="30" Width="150" HorizontalAlignment="Left">
+            <ComboBox materialDesign:HintAssist.Hint="Физ. лицо" 
+              Foreground="#032E66" 
+              FontSize="14"
+              Padding="5"
+              Background="Transparent"
+              materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+              materialDesign:TextFieldAssist.HasClearButton="False"
+              x:Name="PerexodTypeClient"
+              SelectionChanged="RealizaciaPerexoda"
+             />
+        </Border>
+
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" />
+        <Button Background="#6C99C3" Width="30" Height="30"  BorderThickness="0" Click="Back">
+            <Button.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,30,30" />
+            </Button.Clip>
+        </Button>
+        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

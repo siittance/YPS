@@ -23,5 +23,19 @@ namespace Yarik
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+			MainWindow mainWindow = new MainWindow();
+			mainWindow.Show();
+            this.Close();
+        }
+
+        private void YchetObsl(object sender, RoutedEventArgs e)
+        {
+			YchetObslyshivaniyaWindow ychetObslyshivaniyaWindow = new YchetObslyshivaniyaWindow();
+			ychetObslyshivaniyaWindow.Show();
+			this.Close();
+        }
+    }
 }

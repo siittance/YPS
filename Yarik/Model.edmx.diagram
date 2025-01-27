@@ -4,19 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="64a61a0609e44867818a22837ab56bcc" Name="Diagram1" ZoomLevel="66">
-        <EntityTypeShape EntityType="InstrumentServicesModel.ClientRole" Width="1.5" PointX="8" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Clients" Width="1.5" PointX="11" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.ClientType" Width="1.5" PointX="11.375" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Employees" Width="1.5" PointX="14.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.EmployeesRole" Width="1.5" PointX="12" PointY="2.375" IsExpanded="true" />
+      <Diagram DiagramId="27a0a84d8243478c931ab8197790aaf4" Name="Diagram1">
+        <EntityTypeShape EntityType="InstrumentServicesModel.ClientRole" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Clients" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.ClientType" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Employees" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.EmployeesRole" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.Equipment" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentCategories" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentRentals" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.Maintenance" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.MaintenanceStatus" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Rentals" Width="1.5" PointX="6.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Rentals" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.WorkTypes" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientR__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientT__44FF419A" ManuallyRouted="false" />

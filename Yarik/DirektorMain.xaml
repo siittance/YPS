@@ -16,10 +16,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Text="Директор" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#032E66"/>
-        <Button Grid.Row="1" Background="#6C99C3" Width="600" Height="70" Content="Управление сотрудниками"  FontSize="14" Foreground="White"/>
-        <Button Grid.Row="2" Background="#6C99C3" Width="600" Height="70" Content="Управление складом"  FontSize="14" Foreground="White"/>
-        <Button Grid.Row="3" Background="#6C99C3" Width="600" Height="70" Content="Просмотр отчетов"  FontSize="14" Foreground="White"/>
-        <Button Grid.Row="4" Background="#FF0000" Width="600" Height="70" Content="Выйти"  FontSize="14" Foreground="White"/>
+        <Button Grid.Row="1" Background="#6C99C3" Width="600" Height="70" Content="Управление сотрудниками"  FontSize="14" Foreground="White" Click="YpravSotr"/>
+        <Button Grid.Row="2" Background="#6C99C3" Width="600" Height="70" Content="Управление складом"  FontSize="14" Foreground="White" Click="YpravSkladom"/>
+        <Button Grid.Row="3" Background="#6C99C3" Width="600" Height="70" Content="Просмотр отчетов"  FontSize="14" Foreground="White" Click="ProsmotrOtchetov"/>
+        <Button Grid.Row="4" Background="#FF0000" Width="600" Height="70" Content="Выйти"  FontSize="14" Foreground="White" Click="Exit"/>
 
     </Grid>
 </Window>

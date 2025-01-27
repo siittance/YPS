@@ -47,6 +47,7 @@
           <Property Name="PhoneNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Passwordd" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="EmployeesRole_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EmployeesRole">
@@ -110,16 +111,6 @@
           <Property Name="ReservationDate" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Clients_ID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="WorkTypes">
           <Key>
@@ -260,7 +251,6 @@
           <EntitySet Name="Maintenance" EntityType="Self.Maintenance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaintenanceStatus" EntityType="Self.MaintenanceStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rentals" EntityType="Self.Rentals" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkTypes" EntityType="Self.WorkTypes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Clients__ClientR__45F365D3" Association="Self.FK__Clients__ClientR__45F365D3">
             <End Role="ClientRole" EntitySet="ClientRole" />
@@ -355,6 +345,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Passwordd" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmployeesRole_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeesRole" Relationship="Self.FK__Employees__Emplo__3B75D760" FromRole="Employees" ToRole="EmployeesRole" />
         </EntityType>
@@ -432,16 +423,6 @@
           <Property Name="Clients_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK__Rentals__Clients__48CFD27E" FromRole="Rentals" ToRole="Clients" />
           <NavigationProperty Name="EquipmentRentals" Relationship="Self.FK__Equipment__Renta__5070F446" FromRole="Rentals" ToRole="EquipmentRentals" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="WorkTypes">
           <Key>
@@ -571,7 +552,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="InstrumentServicesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="InstrumentServicesEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClientRole" EntityType="Self.ClientRole" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
           <EntitySet Name="ClientType" EntityType="Self.ClientType" />
@@ -583,7 +564,6 @@
           <EntitySet Name="Maintenance" EntityType="Self.Maintenance" />
           <EntitySet Name="MaintenanceStatus" EntityType="Self.MaintenanceStatus" />
           <EntitySet Name="Rentals" EntityType="Self.Rentals" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="WorkTypes" EntityType="Self.WorkTypes" />
           <AssociationSet Name="FK__Clients__ClientR__45F365D3" Association="Self.FK__Clients__ClientR__45F365D3">
             <End Role="ClientRole" EntitySet="ClientRole" />
@@ -631,7 +611,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище InstrumentServicesModelContainer" CdmEntityContainer="InstrumentServicesEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InstrumentServicesModelContainer" CdmEntityContainer="InstrumentServicesEntities1">
           <EntitySetMapping Name="ClientRole">
             <EntityTypeMapping TypeName="InstrumentServicesModel.ClientRole">
               <MappingFragment StoreEntitySet="ClientRole">
@@ -676,6 +656,7 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Passwordd" ColumnName="Passwordd" />
                 <ScalarProperty Name="EmployeesRole_ID" ColumnName="EmployeesRole_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -746,17 +727,6 @@
                 <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
                 <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="Clients_ID" ColumnName="Clients_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="InstrumentServicesModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

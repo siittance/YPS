@@ -49,6 +49,7 @@
     <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="EmployeesRole_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="EmployeesRole" Relationship="Self.FK__Employees__Emplo__3B75D760" FromRole="Employees" ToRole="EmployeesRole" />
+    <Property Name="Passwordd" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="EmployeesRole">
     <Key>

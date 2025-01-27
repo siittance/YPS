@@ -1,33 +1,62 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Yarik
 {
     public partial class MainWindow : Window
     {
+        InstrumentServicesEntities1 yp = new InstrumentServicesEntities1();
+
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-        private void WTF(object sender, RoutedEventArgs e)
+        private void Auth(object sender, RoutedEventArgs e)
         {
-            TechnikMain direktorMain = new TechnikMain();
-            direktorMain.Show();
-            this.Close();
+            var vxod = yp.Employees.ToList();
+            bool avtoriz = false;
+
+            if (string.IsNullOrWhiteSpace(PochtaText.Text) || string.IsNullOrWhiteSpace(PasswordText.Password))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля.");
+                return;
+            }
+
+            foreach (var v in vxod)
+            {
+                if (v.Email == PochtaText.Text && v.Passwordd == PasswordText.Password)
+                {
+                    avtoriz = true;
+
+                    if (v.EmployeesRole_ID == 1)
+                    {
+                        MenedsherMain menedsher = new MenedsherMain();
+                        menedsher.Show();
+                    }
+                    else if (v.EmployeesRole_ID == 2)
+                    {
+                        DirektorMain direktor = new DirektorMain();
+                        direktor.Show();
+                    }
+                    else if (v.EmployeesRole_ID == 3)
+                    {
+                        TechnikMain technik = new TechnikMain();
+                        technik.Show();
+                    }
+
+                    Close();
+                    break;
+                }
+            }
+
+            if (!avtoriz)
+            {
+                MessageBox.Show("Такого логина/пароля не существует. Попробуйте еще раз.");
+                PochtaText.Text = null;
+                PasswordText.Password = null;
+            }
         }
     }
 }

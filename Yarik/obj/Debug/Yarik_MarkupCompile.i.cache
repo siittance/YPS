@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\Source\Repos\YPS\Yarik\obj\Debug\
+C:\Users\siitt\Source\Repos\YPS\Yarik\obj\Debug\
 Yarik
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\Source\Repos\YPS\Yarik\App.xaml
-41126940503
-2-1957146511
-25-612911916
-21201960241
-MenedsherMain.xaml;DirektorMain.xaml;MainWindow.xaml;TechnikMain.xaml;
+C:\Users\siitt\Source\Repos\YPS\Yarik\App.xaml
+12-1085467825
+22035508349
+32-1429440894
+21-2048359515
+EmploWIndow.xaml;FizLicoWindow.xaml;FormirovanieOtchetov.xaml;MenedsherMain.xaml;DirektorMain.xaml;MainWindow.xaml;TechnikMain.xaml;UrLicoWindow.xaml;YchetOborydovaniyaWindow.xaml;YchetObslyshivaniyaWindow.xaml;YpravlenieArendoi.xaml;YpravleSkladom.xaml;
 
-True
+False
 

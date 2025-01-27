@@ -1,0 +1,48 @@
+﻿<Window x:Class="Yarik.FormirovanieOtchetov"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yarik"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Окно формирования отчетов" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата начала?" Padding="10" FontSize="14"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата окончания?" Padding="10" FontSize="14"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Выберите необходимый отчет" Padding="10" FontSize="14"/>
+        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" />
+        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" />
+        <DataGrid Grid.RowSpan="11" Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4"/>
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>
+        <TextBlock Background="#D2E6F3" Text="Формирование отчетов" Grid.Column="1" Foreground="#032E66" FontSize="20" VerticalAlignment="Center"/>
+        <TextBlock Background="#D2E6F3" Foreground="#032E66" />
+        <Button Background="#6C99C3" Width="30" Height="30"  BorderThickness="0" Click="Back">
+            <Button.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,30,30" />
+            </Button.Clip>
+        </Button>
+        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
