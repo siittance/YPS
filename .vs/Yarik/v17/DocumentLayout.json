@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\siitt\\source\\repos\\YPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\ypravleskladom.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ypravleskladom.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\fizlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\fizlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\ypravleskladom.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ypravleskladom.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\fizlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\fizlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\emplowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\emplowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\urlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\urlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\urlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\urlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,47 +26,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 130,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "YpravleSkladom.xaml",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravleSkladom.xaml",
-              "RelativeDocumentMoniker": "Yarik\\YpravleSkladom.xaml",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravleSkladom.xaml",
-              "RelativeToolTip": "Yarik\\YpravleSkladom.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-27T00:23:52.74Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmploWIndow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\EmploWIndow.xaml.cs",
-              "RelativeDocumentMoniker": "Yarik\\EmploWIndow.xaml.cs",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\EmploWIndow.xaml.cs",
-              "RelativeToolTip": "Yarik\\EmploWIndow.xaml.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA5wBkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T01:20:55.024Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "YpravleSkladom.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravleSkladom.xaml.cs",
-              "RelativeDocumentMoniker": "Yarik\\YpravleSkladom.xaml.cs",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravleSkladom.xaml.cs",
-              "RelativeToolTip": "Yarik\\YpravleSkladom.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T00:40:34.085Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -86,6 +51,53 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UrLicoWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml",
+              "RelativeDocumentMoniker": "Yarik\\UrLicoWindow.xaml",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml",
+              "RelativeToolTip": "Yarik\\UrLicoWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-27T02:58:48.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UrLicoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Yarik\\UrLicoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml.cs",
+              "RelativeToolTip": "Yarik\\UrLicoWindow.xaml.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBwAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T02:52:20.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FizLicoWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml",
+              "RelativeDocumentMoniker": "Yarik\\FizLicoWindow.xaml",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml",
+              "RelativeToolTip": "Yarik\\FizLicoWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-27T02:53:26.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FizLicoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Yarik\\FizLicoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml.cs",
+              "RelativeToolTip": "Yarik\\FizLicoWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T02:15:33.082Z",
+              "EditorCaption": ""
             }
           ]
         },

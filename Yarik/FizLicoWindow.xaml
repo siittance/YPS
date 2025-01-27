@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Yarik"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Окно физического лица" Height="450" Width="800" WindowState="Maximized">
+        Title="Окно юридического лица" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -27,18 +28,20 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название компании" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Имя КЛ" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Фамилия КЛ" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Отчество КЛ" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Телефон" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Паспортные данные" Padding="10" FontSize="14"/>
-        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" />
-        <DataGrid Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="ClientsWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название компании" Padding="10" FontSize="14" x:Name="CompanyName"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Имя КЛ" Padding="10" FontSize="14" x:Name="ClientName"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Фамилия КЛ" Padding="10" FontSize="14" x:Name="ClientSurname"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Отчество КЛ" Padding="10" FontSize="14" x:Name="ClientMiddleName"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Телефон" Padding="10" FontSize="14" x:Name="PhoneNumber" PreviewTextInput="PhoneNumberPreviewTextInput"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Почта" Padding="10" FontSize="14" x:Name="Email"/>
+        <TextBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Адрес клиента" Padding="10" FontSize="14" x:Name="ClientAddress"/>
+        <TextBox Grid.Row="7" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="ИНН" Padding="10" FontSize="14" x:Name="INN"/>
+        <ComboBox Grid.Row="8" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Должность" Padding="10" FontSize="14" x:Name="Dolshnost"/>
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
+        <Button Grid.Row="10" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>
+        <Button Grid.Row="11" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" Click="Delete"/>
+        <Button Grid.Row="12" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>
+        <DataGrid Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="ClientsWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="PerenosFiz">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CompanyName}" Header="Название компании"/>
                 <DataGridTextColumn Binding="{Binding ClientName}" Header="Имя"/>
@@ -46,13 +49,15 @@
                 <DataGridTextColumn Binding="{Binding ClientMiddleName}" Header="Отчество"/>
                 <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер телефона"/>
                 <DataGridTextColumn Binding="{Binding Email}" Header="Почта"/>
-                <DataGridTextColumn Binding="{Binding PassportData}" Header="Паспортные данные"/>
+                <DataGridTextColumn Binding="{Binding INN}" Header="ИНН"/>
                 <DataGridTextColumn Binding="{Binding ClientAddress}" Header="Адрес"/>
+                <DataGridTextColumn Binding="{Binding ClientType.TypeName}" Header="Тип клиента"/>
+                <DataGridTextColumn Binding="{Binding ClientRole.ClientsRoleName}" Header="Должность"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>
         <Border CornerRadius="10" Background="#6C99C3" Grid.Column="1" Height="30" Width="150" HorizontalAlignment="Left">
-            <ComboBox materialDesign:HintAssist.Hint="Физ. лицо" 
+            <ComboBox materialDesign:HintAssist.Hint="Юр. лицо" 
               Foreground="#032E66" 
               FontSize="14"
               Padding="5"
