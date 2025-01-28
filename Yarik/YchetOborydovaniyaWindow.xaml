@@ -27,24 +27,26 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Номер" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Рентальная цена" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Количество" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Стоимость за единицу" Padding="10" FontSize="14"/>
-        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Категория" Padding="10" FontSize="14"/>
-        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" />
-        <DataGrid Grid.RowSpan="12" Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="EquipmentWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название" Padding="10" FontSize="14" x:Name="Name"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Номер" Padding="10" FontSize="14" x:Name="Number"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Рентальная цена" Padding="10" FontSize="14"  x:Name="RentPrice"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Количество" Padding="10" FontSize="14"  x:Name="Count"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Стоимость за единицу" Padding="10" FontSize="14"  x:Name="PriceZa1"/>
+        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Категория" Padding="10" FontSize="14"  x:Name="Category"/>
+        <ComboBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Статус" Padding="10" FontSize="14"  x:Name="Status"/>
+        <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>
+        <Button Grid.Row="10" Grid.Column="2" Background="#032E66" Width="350" Content="Удалить" FontSize="14" Foreground="White" Click="Delete"/>
+        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>
+        <DataGrid Grid.RowSpan="12" Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="EquipmentPerenos" x:Name="EquipmentWatch">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding EquipmentName}" Header="Название оборудования"/>
                 <DataGridTextColumn Binding="{Binding InventoryNumber}" Header="Инвентарный номер"/>
                 <DataGridTextColumn Binding="{Binding RentalCost}" Header="Стоимость аренды"/>
                 <DataGridTextColumn Binding="{Binding StockCount}" Header="Количество в наличии"/>
-                <DataGridTextColumn Binding="{Binding UnitCost}" Header="Себестоимость"/>
+                <DataGridTextColumn Binding="{Binding UnitCost}" Header="Стоимость за единицу"/>
                 <DataGridTextColumn Binding="{Binding EquipmentCategories.EquipCategoryName}" Header="Категория"/>
+                <DataGridTextColumn Binding="{Binding EquipmentStatus.EquipmentStatusName}" Header="Статус"/>  
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>

@@ -15,7 +15,10 @@ namespace Yarik
             InitializeComponent();
             PerexodTypeClient.Items.Add("Физ. лицо");
             PerexodTypeClient.Items.Add("Юр. лицо");
-            ClientsWatch.ItemsSource = yp.Clients.ToList();
+            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 2).ToList();
+            Dolshnost.ItemsSource = yp.ClientRole.ToList();
+            Dolshnost.SelectedValuePath = "ID_ClientRole";
+            Dolshnost.DisplayMemberPath = "ClientsRoleName";
 
             INN.MaxLength = 10;
             PhoneNumber.MaxLength = 12;
@@ -34,11 +37,11 @@ namespace Yarik
             {
                 switch (selectedItem)
                 {
-                    case "Физ. лицо":
+                    case "Юр. лицо":
                         new FizLicoWindow().Show();
                         this.Close();
                         break;
-                    case "Юр. лицо":
+                    case "Физ. лицо":
                         new UrLicoWindow().Show();
                         this.Close();
                         break;
@@ -76,8 +79,7 @@ namespace Yarik
                 return;
             }
 
-            int? innValue = TryParseINN(inn);
-            if (innValue == null)
+            if (inn == null)
             {
                 MessageBox.Show("ИНН должен быть числовым значением", "Ошибка");
                 return;
@@ -95,7 +97,7 @@ namespace Yarik
                 return;
             }
 
-            if (yp.Clients.Any(c => c.INN == innValue)) 
+            if (yp.Clients.Any(c => c.INN == inn)) 
             {
                 MessageBox.Show("Клиент с таким ИНН уже существует", "Ошибка");
                 return;
@@ -109,14 +111,15 @@ namespace Yarik
                 ClientMiddleName = ClientMiddleName.Text,
                 PhoneNumber = phone,
                 Email = email,
-                INN = innValue, 
+                INN = inn, 
                 ClientAddress = ClientAddress.Text,
+                ClientRole_ID = (Dolshnost.SelectedItem as ClientRole)?.ID_ClientRole ?? 0,
                 ClientType_ID = 2,
             };
 
             yp.Clients.Add(newClient);
             yp.SaveChanges();
-            ClientsWatch.ItemsSource = yp.Clients.ToList();
+            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 2).ToList();
             Clear(null, null);
         }
 
@@ -145,8 +148,7 @@ namespace Yarik
                 return;
             }
 
-            int? innValue = TryParseINN(inn);
-            if (innValue == null)
+            if (inn == null)
             {
                 MessageBox.Show("ИНН должен быть числовым значением", "Ошибка");
                 return;
@@ -164,7 +166,7 @@ namespace Yarik
                 return;
             }
 
-            if (yp.Clients.Any(c => c.INN == innValue && c.ID_Clients != selectedClient.ID_Clients)) 
+            if (yp.Clients.Any(c => c.INN == inn && c.ID_Clients != selectedClient.ID_Clients)) 
             {
                 MessageBox.Show("Клиент с таким ИНН уже существует", "Ошибка");
                 return;
@@ -176,11 +178,13 @@ namespace Yarik
             selectedClient.ClientMiddleName = ClientMiddleName.Text;
             selectedClient.PhoneNumber = phone;
             selectedClient.Email = email;
-            selectedClient.INN = innValue;
+            selectedClient.INN = inn;
+            selectedClient.ClientRole_ID = (Dolshnost.SelectedItem as ClientRole)?.ID_ClientRole ?? 0;
+
+
 
             yp.SaveChanges();
-            ClientsWatch.ItemsSource = yp.Clients.ToList();
-            Clear(null, null);
+            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 2).ToList();
         }
 
         private bool IsValidEmail(string email)
@@ -198,17 +202,6 @@ namespace Yarik
             return Regex.IsMatch(inn, @"^\d{10}$");
         }
 
-        private int? TryParseINN(string inn)
-        {
-            if (string.IsNullOrEmpty(inn)) return null;
-
-            if (inn.Length == 10 && Regex.IsMatch(inn, @"^\d{10}$"))
-            {
-                return int.Parse(inn);
-            }
-
-            return null;
-        }
 
         private void Clear(object sender, RoutedEventArgs e)
         {
@@ -220,6 +213,7 @@ namespace Yarik
             Email.Text = null;
             INN.Text = null;
             ClientAddress.Text = null;
+            Dolshnost.Text = null;
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -233,7 +227,7 @@ namespace Yarik
             Clients selectedClient = ClientsWatch.SelectedItem as Clients;
             yp.Clients.Remove(selectedClient);
             yp.SaveChanges();
-            ClientsWatch.ItemsSource = yp.Clients.ToList();
+            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 2).ToList();
             Clear(null, null);
         }
 
@@ -250,6 +244,7 @@ namespace Yarik
                 PhoneNumber.Text = selectedCl.PhoneNumber;
                 INN.Text = selectedCl.INN.ToString();  
                 ClientAddress.Text = selectedCl.ClientAddress;
+                Dolshnost.SelectedValue = selectedCl.ClientRole_ID;
             }
         }
 

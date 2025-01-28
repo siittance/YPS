@@ -12,27 +12,18 @@ namespace Yarik
     using System;
     using System.Collections.Generic;
     
-    public partial class Rentals
+    public partial class RentalsStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rentals()
+        public RentalsStatus()
         {
-            this.EquipmentRentals = new HashSet<EquipmentRentals>();
+            this.Rentals = new HashSet<Rentals>();
         }
     
-        public int ID_Rentals { get; set; }
-        public string RentalDate { get; set; }
-        public string ReturnDate { get; set; }
-        public string ReservationDate { get; set; }
-        public decimal TotalCost { get; set; }
-        public int Clients_ID { get; set; }
-        public int Equipment_ID { get; set; }
-        public int RentalsStatus_ID { get; set; }
+        public int ID_RentalsStatus { get; set; }
+        public string RentalsStatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EquipmentRentals> EquipmentRentals { get; set; }
-        public virtual Clients Clients { get; set; }
-        public virtual Equipment Equipment { get; set; }
-        public virtual RentalsStatus RentalsStatus { get; set; }
+        public virtual ICollection<Rentals> Rentals { get; set; }
     }
 }

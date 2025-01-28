@@ -27,22 +27,24 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата начала" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата окончания" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата брони" Padding="10" FontSize="14"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сумма оплаты" Padding="10" FontSize="14"/>
-        <ComboBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Клиент" Padding="10" FontSize="14"/>
-        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование" Padding="10" FontSize="14"/>
-        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="10" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" />
-        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" />
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="RentalsWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Grid.RowSpan="12">
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата начала" Padding="10" FontSize="14" x:Name="StartDate"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата окончания" Padding="10" FontSize="14" x:Name="EndDate"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата брони" Padding="10" FontSize="14" x:Name="DateRezervation"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сумма оплаты" Padding="10" FontSize="14" x:Name="CheckBill"/>
+        <ComboBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Клиент" Padding="10" FontSize="14" x:Name="Client"/>
+        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование" Padding="10" FontSize="14" x:Name="Oborudovanie"/>
+        <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
+        <Button Grid.Row="10" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>
+        <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="RentalsWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Grid.RowSpan="12" SelectionChanged="RentalsPerenos">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding RentalDate}" Header="Дата аренды"/>
-                <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Дата возврата"/>
+                <DataGridTextColumn Binding="{Binding RentalDate}" Header="Дата начала аренды"/>
+                <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Дата окончания аренды"/>
                 <DataGridTextColumn Binding="{Binding ReservationDate}" Header="Дата бронирования"/>
-                <DataGridTextColumn Binding="{Binding TotalCost}" Header="Общая стоимость"/>
+                <DataGridTextColumn Binding="{Binding TotalCost}" Header="Сумма оплаты"/>
                 <DataGridTextColumn Binding="{Binding Clients.ClientName}" Header="Клиент"/>
+                <DataGridTextColumn Binding="{Binding Equipment.EquipmentName}" Header="Оборудование"/>
+                <DataGridTextColumn Binding="{Binding RentalsStatus.RentalsStatusName}" Header="Статус заказа"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Background="#D2E6F3" Foreground="#032E66" Grid.Column="1"/>

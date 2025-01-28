@@ -17,7 +17,7 @@
     <Property Name="Email" Type="varchar" MaxLength="100" />
     <Property Name="PassportData" Type="varchar" MaxLength="10" />
     <Property Name="ClientAddress" Type="varchar" MaxLength="100" />
-    <Property Name="INN" Type="int" />
+    <Property Name="INN" Type="varchar" MaxLength="12" />
     <Property Name="ClientName" Type="varchar" MaxLength="50" />
     <Property Name="ClientSurname" Type="varchar" MaxLength="50" />
     <Property Name="ClientMiddleName" Type="varchar" MaxLength="50" />
@@ -63,6 +63,7 @@
     <Property Name="StockCount" Type="int" Nullable="false" />
     <Property Name="UnitCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="EquipmentCategories_ID" Type="int" Nullable="false" />
+    <Property Name="EquipmentStatus_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EquipmentCategories">
     <Key>
@@ -78,6 +79,13 @@
     <Property Name="ID_EquipmentRentals" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Rentals_ID" Type="int" Nullable="false" />
     <Property Name="Equipment_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentStatus">
+    <Key>
+      <PropertyRef Name="ID_EquipmentStatus" />
+    </Key>
+    <Property Name="ID_EquipmentStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EquipmentStatusName" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Maintenance">
     <Key>
@@ -106,6 +114,15 @@
     <Property Name="ReservationDate" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Clients_ID" Type="int" Nullable="false" />
+    <Property Name="Equipment_ID" Type="int" Nullable="false" />
+    <Property Name="RentalsStatus_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentalsStatus">
+    <Key>
+      <PropertyRef Name="ID_RentalsStatus" />
+    </Key>
+    <Property Name="ID_RentalsStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RentalsStatusName" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="WorkTypes">
     <Key>
@@ -150,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Equipment__Equip__4D94879B">
+  <Association Name="FK__Equipment__Equip__4CA06362">
     <End Role="EquipmentCategories" Type="Self.EquipmentCategories" Multiplicity="1" />
     <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -162,7 +179,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Equipment__Equip__5165187F">
+  <Association Name="FK__Equipment__Equip__4D94879B">
+    <End Role="EquipmentStatus" Type="Self.EquipmentStatus" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentStatus">
+        <PropertyRef Name="ID_EquipmentStatus" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="EquipmentStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Equipment__Equip__5812160E">
     <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
     <End Role="EquipmentRentals" Type="Self.EquipmentRentals" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Equipment__Renta__5070F446">
+  <Association Name="FK__Equipment__Renta__571DF1D5">
     <End Role="Rentals" Type="Self.Rentals" Multiplicity="1" />
     <End Role="EquipmentRentals" Type="Self.EquipmentRentals" Multiplicity="*" />
     <ReferentialConstraint>
@@ -186,7 +215,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Maintenan__Equip__5812160E">
+  <Association Name="FK__Maintenan__Equip__5EBF139D">
     <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
     <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -198,7 +227,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Maintenan__Maint__59FA5E80">
+  <Association Name="FK__Maintenan__Maint__60A75C0F">
     <End Role="MaintenanceStatus" Type="Self.MaintenanceStatus" Multiplicity="1" />
     <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -210,7 +239,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Maintenan__WorkT__59063A47">
+  <Association Name="FK__Maintenan__WorkT__5FB337D6">
     <End Role="WorkTypes" Type="Self.WorkTypes" Multiplicity="1" />
     <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -222,7 +251,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rentals__Clients__48CFD27E">
+  <Association Name="FK__Rentals__Clients__52593CB8">
     <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
     <End Role="Rentals" Type="Self.Rentals" Multiplicity="*" />
     <ReferentialConstraint>
@@ -231,6 +260,30 @@
       </Principal>
       <Dependent Role="Rentals">
         <PropertyRef Name="Clients_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rentals__Equipme__534D60F1">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="Rentals" Type="Self.Rentals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="ID_Equipment" />
+      </Principal>
+      <Dependent Role="Rentals">
+        <PropertyRef Name="Equipment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rentals__Rentals__5441852A">
+    <End Role="RentalsStatus" Type="Self.RentalsStatus" Multiplicity="1" />
+    <End Role="Rentals" Type="Self.Rentals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalsStatus">
+        <PropertyRef Name="ID_RentalsStatus" />
+      </Principal>
+      <Dependent Role="Rentals">
+        <PropertyRef Name="RentalsStatus_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -243,9 +296,11 @@
     <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EquipmentCategories" EntityType="Self.EquipmentCategories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EquipmentRentals" EntityType="Self.EquipmentRentals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquipmentStatus" EntityType="Self.EquipmentStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Maintenance" EntityType="Self.Maintenance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaintenanceStatus" EntityType="Self.MaintenanceStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rentals" EntityType="Self.Rentals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentalsStatus" EntityType="Self.RentalsStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkTypes" EntityType="Self.WorkTypes" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Clients__ClientR__45F365D3" Association="Self.FK__Clients__ClientR__45F365D3">
       <End Role="ClientRole" EntitySet="ClientRole" />
@@ -259,32 +314,44 @@
       <End Role="EmployeesRole" EntitySet="EmployeesRole" />
       <End Role="Employees" EntitySet="Employees" />
     </AssociationSet>
-    <AssociationSet Name="FK__Equipment__Equip__4D94879B" Association="Self.FK__Equipment__Equip__4D94879B">
+    <AssociationSet Name="FK__Equipment__Equip__4CA06362" Association="Self.FK__Equipment__Equip__4CA06362">
       <End Role="EquipmentCategories" EntitySet="EquipmentCategories" />
       <End Role="Equipment" EntitySet="Equipment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Equipment__Equip__5165187F" Association="Self.FK__Equipment__Equip__5165187F">
+    <AssociationSet Name="FK__Equipment__Equip__4D94879B" Association="Self.FK__Equipment__Equip__4D94879B">
+      <End Role="EquipmentStatus" EntitySet="EquipmentStatus" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Equipment__Equip__5812160E" Association="Self.FK__Equipment__Equip__5812160E">
       <End Role="Equipment" EntitySet="Equipment" />
       <End Role="EquipmentRentals" EntitySet="EquipmentRentals" />
     </AssociationSet>
-    <AssociationSet Name="FK__Equipment__Renta__5070F446" Association="Self.FK__Equipment__Renta__5070F446">
+    <AssociationSet Name="FK__Equipment__Renta__571DF1D5" Association="Self.FK__Equipment__Renta__571DF1D5">
       <End Role="Rentals" EntitySet="Rentals" />
       <End Role="EquipmentRentals" EntitySet="EquipmentRentals" />
     </AssociationSet>
-    <AssociationSet Name="FK__Maintenan__Equip__5812160E" Association="Self.FK__Maintenan__Equip__5812160E">
+    <AssociationSet Name="FK__Maintenan__Equip__5EBF139D" Association="Self.FK__Maintenan__Equip__5EBF139D">
       <End Role="Equipment" EntitySet="Equipment" />
       <End Role="Maintenance" EntitySet="Maintenance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Maintenan__Maint__59FA5E80" Association="Self.FK__Maintenan__Maint__59FA5E80">
+    <AssociationSet Name="FK__Maintenan__Maint__60A75C0F" Association="Self.FK__Maintenan__Maint__60A75C0F">
       <End Role="MaintenanceStatus" EntitySet="MaintenanceStatus" />
       <End Role="Maintenance" EntitySet="Maintenance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Maintenan__WorkT__59063A47" Association="Self.FK__Maintenan__WorkT__59063A47">
+    <AssociationSet Name="FK__Maintenan__WorkT__5FB337D6" Association="Self.FK__Maintenan__WorkT__5FB337D6">
       <End Role="WorkTypes" EntitySet="WorkTypes" />
       <End Role="Maintenance" EntitySet="Maintenance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rentals__Clients__48CFD27E" Association="Self.FK__Rentals__Clients__48CFD27E">
+    <AssociationSet Name="FK__Rentals__Clients__52593CB8" Association="Self.FK__Rentals__Clients__52593CB8">
       <End Role="Clients" EntitySet="Clients" />
+      <End Role="Rentals" EntitySet="Rentals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rentals__Equipme__534D60F1" Association="Self.FK__Rentals__Equipme__534D60F1">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="Rentals" EntitySet="Rentals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rentals__Rentals__5441852A" Association="Self.FK__Rentals__Rentals__5441852A">
+      <End Role="RentalsStatus" EntitySet="RentalsStatus" />
       <End Role="Rentals" EntitySet="Rentals" />
     </AssociationSet>
   </EntityContainer>

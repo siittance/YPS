@@ -26,7 +26,7 @@ namespace Yarik
         public string Email { get; set; }
         public string PassportData { get; set; }
         public string ClientAddress { get; set; }
-        public Nullable<int> INN { get; set; }
+        public string INN { get; set; }
         public string ClientName { get; set; }
         public string ClientSurname { get; set; }
         public string ClientMiddleName { get; set; }

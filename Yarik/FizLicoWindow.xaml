@@ -51,7 +51,6 @@
                 <DataGridTextColumn Binding="{Binding Email}" Header="Почта"/>
                 <DataGridTextColumn Binding="{Binding INN}" Header="ИНН"/>
                 <DataGridTextColumn Binding="{Binding ClientAddress}" Header="Адрес"/>
-                <DataGridTextColumn Binding="{Binding ClientType.TypeName}" Header="Тип клиента"/>
                 <DataGridTextColumn Binding="{Binding ClientRole.ClientsRoleName}" Header="Должность"/>
             </DataGrid.Columns>
         </DataGrid>

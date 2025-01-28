@@ -102,6 +102,9 @@
     <Compile Include="EquipmentRentals.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="EquipmentStatus.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="FizLicoWindow.xaml.cs">
       <DependentUpon>FizLicoWindow.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Rentals.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RentalsStatus.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TechnikMain.xaml.cs">

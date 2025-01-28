@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\siitt\\source\\repos\\YPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\fizlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\ypravleniearendoi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ypravleniearendoi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\ypravleniearendoi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ypravleniearendoi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\ychetoborydovaniyawindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ychetoborydovaniyawindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\model.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\model.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\ychetoborydovaniyawindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\ychetoborydovaniyawindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|C:\\Users\\siitt\\source\\repos\\YPS\\yarik\\fizlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\fizlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\fizlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\fizlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\urlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\urlicowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|c:\\users\\siitt\\source\\repos\\yps\\yarik\\urlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1885A71B-E9B1-4CA9-AAAB-D8A046D15F82}|Yarik\\Yarik.csproj|solutionrelative:yarik\\urlicowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 130,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,52 +62,77 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UrLicoWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml",
-              "RelativeDocumentMoniker": "Yarik\\UrLicoWindow.xaml",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml",
-              "RelativeToolTip": "Yarik\\UrLicoWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-27T02:58:48.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UrLicoWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Yarik\\UrLicoWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\UrLicoWindow.xaml.cs",
-              "RelativeToolTip": "Yarik\\UrLicoWindow.xaml.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T02:52:20.136Z",
-              "EditorCaption": ""
+              "Title": "Model.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\Model.edmx",
+              "RelativeDocumentMoniker": "Yarik\\Model.edmx",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\Model.edmx [Diagram1]",
+              "RelativeToolTip": "Yarik\\Model.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-01-28T01:26:52.2Z",
+              "EditorCaption": " [Diagram1]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FizLicoWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml",
-              "RelativeDocumentMoniker": "Yarik\\FizLicoWindow.xaml",
-              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml",
-              "RelativeToolTip": "Yarik\\FizLicoWindow.xaml",
+              "Title": "YpravlenieArendoi.xaml",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravlenieArendoi.xaml",
+              "RelativeDocumentMoniker": "Yarik\\YpravlenieArendoi.xaml",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravlenieArendoi.xaml",
+              "RelativeToolTip": "Yarik\\YpravlenieArendoi.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-27T02:53:26.434Z",
+              "WhenOpened": "2025-01-27T23:52:54.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "YpravlenieArendoi.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravlenieArendoi.xaml.cs",
+              "RelativeDocumentMoniker": "Yarik\\YpravlenieArendoi.xaml.cs",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YpravlenieArendoi.xaml.cs*",
+              "RelativeToolTip": "Yarik\\YpravlenieArendoi.xaml.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T00:41:45.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "FizLicoWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml.cs",
               "RelativeDocumentMoniker": "Yarik\\FizLicoWindow.xaml.cs",
               "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\FizLicoWindow.xaml.cs",
               "RelativeToolTip": "Yarik\\FizLicoWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAiwHMAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T02:15:33.082Z",
+              "WhenOpened": "2025-01-28T00:20:52.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "YchetOborydovaniyaWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YchetOborydovaniyaWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Yarik\\YchetOborydovaniyaWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YchetOborydovaniyaWindow.xaml.cs",
+              "RelativeToolTip": "Yarik\\YchetOborydovaniyaWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T00:17:46.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "YchetOborydovaniyaWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YchetOborydovaniyaWindow.xaml",
+              "RelativeDocumentMoniker": "Yarik\\YchetOborydovaniyaWindow.xaml",
+              "ToolTip": "C:\\Users\\siitt\\source\\repos\\YPS\\Yarik\\YchetOborydovaniyaWindow.xaml",
+              "RelativeToolTip": "Yarik\\YchetOborydovaniyaWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-28T00:01:50.486Z",
               "EditorCaption": ""
             }
           ]

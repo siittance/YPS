@@ -19,6 +19,7 @@ namespace Yarik
         {
             this.EquipmentRentals = new HashSet<EquipmentRentals>();
             this.Maintenance = new HashSet<Maintenance>();
+            this.Rentals = new HashSet<Rentals>();
         }
     
         public int ID_Equipment { get; set; }
@@ -28,11 +29,15 @@ namespace Yarik
         public int StockCount { get; set; }
         public decimal UnitCost { get; set; }
         public int EquipmentCategories_ID { get; set; }
+        public int EquipmentStatus_ID { get; set; }
     
         public virtual EquipmentCategories EquipmentCategories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EquipmentRentals> EquipmentRentals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Maintenance> Maintenance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rentals> Rentals { get; set; }
+        public virtual EquipmentStatus EquipmentStatus { get; set; }
     }
 }

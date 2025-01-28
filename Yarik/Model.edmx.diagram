@@ -4,22 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="27a0a84d8243478c931ab8197790aaf4" Name="Diagram1">
-        <EntityTypeShape EntityType="InstrumentServicesModel.ClientRole" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Clients" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.ClientType" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
+      <Diagram DiagramId="27a0a84d8243478c931ab8197790aaf4" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="InstrumentServicesModel.ClientRole" Width="1.5" PointX="0.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.ClientType" Width="1.5" PointX="0.5" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.Employees" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="InstrumentServicesModel.EmployeesRole" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Equipment" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentCategories" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentRentals" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Maintenance" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.MaintenanceStatus" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.Rentals" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InstrumentServicesModel.WorkTypes" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientR__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientT__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="InstrumentServicesModel.FK__Rentals__Clients__48CFD27E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Equipment" Width="1.5" PointX="1.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentCategories" Width="1" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentRentals" Width="1.375" PointX="3.375" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Maintenance" Width="1.5" PointX="5.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.MaintenanceStatus" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Rentals" Width="1.5" PointX="1.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.WorkTypes" Width="1.5" PointX="5.875" PointY="4" IsExpanded="true" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Employees__Emplo__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Equipment__Equip__4D94879B" ManuallyRouted="false" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Equipment__Equip__5165187F" ManuallyRouted="false" />
@@ -27,6 +23,15 @@
         <AssociationConnector Association="InstrumentServicesModel.FK__Equipment__Renta__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Maintenan__Maint__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="InstrumentServicesModel.FK__Maintenan__WorkT__59063A47" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.Clients" Width="1.5" PointX="2.875" PointY="7.875" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientR__45F365D3" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Clients__ClientT__44FF419A" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Rentals__Clients__48CFD27E" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Rentals__Equipme__4E88ABD4" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.EquipmentStatus" Width="1.5" PointX="3.75" PointY="2.25" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Equipment__Equip__4D94879B1" />
+        <EntityTypeShape EntityType="InstrumentServicesModel.RentalsStatus" Width="1.5" PointX="10.375" PointY="0.875" />
+        <AssociationConnector Association="InstrumentServicesModel.FK__Rentals__Rentals__5441852A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -6,27 +6,7 @@
     </Key>
     <Property Name="ID_ClientRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClientsRoleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__ClientR__45F365D3" FromRole="ClientRole" ToRole="Clients" />
-  </EntityType>
-  <EntityType Name="Clients">
-    <Key>
-      <PropertyRef Name="ID_Clients" />
-    </Key>
-    <Property Name="ID_Clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PassportData" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="ClientAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="INN" Type="Int32" />
-    <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ClientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ClientMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ClientType_ID" Type="Int32" Nullable="false" />
-    <Property Name="ClientRole_ID" Type="Int32" />
-    <NavigationProperty Name="ClientRole" Relationship="Self.FK__Clients__ClientR__45F365D3" FromRole="Clients" ToRole="ClientRole" />
-    <NavigationProperty Name="ClientType" Relationship="Self.FK__Clients__ClientT__44FF419A" FromRole="Clients" ToRole="ClientType" />
-    <NavigationProperty Name="Rentals" Relationship="Self.FK__Rentals__Clients__48CFD27E" FromRole="Clients" ToRole="Rentals" />
+    <NavigationProperty Name="Clients" Relationship="InstrumentServicesModel.FK__Clients__ClientR__45F365D3" FromRole="ClientRole" ToRole="Clients" />
   </EntityType>
   <EntityType Name="ClientType">
     <Key>
@@ -34,7 +14,7 @@
     </Key>
     <Property Name="ID_ClientType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TypeName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__ClientT__44FF419A" FromRole="ClientType" ToRole="Clients" />
+    <NavigationProperty Name="Clients" Relationship="InstrumentServicesModel.FK__Clients__ClientT__44FF419A" FromRole="ClientType" ToRole="Clients" />
   </EntityType>
   <EntityType Name="Employees">
     <Key>
@@ -73,6 +53,9 @@
     <NavigationProperty Name="EquipmentCategories" Relationship="Self.FK__Equipment__Equip__4D94879B" FromRole="Equipment" ToRole="EquipmentCategories" />
     <NavigationProperty Name="EquipmentRentals" Relationship="Self.FK__Equipment__Equip__5165187F" FromRole="Equipment" ToRole="EquipmentRentals" />
     <NavigationProperty Name="Maintenance" Relationship="Self.FK__Maintenan__Equip__5812160E" FromRole="Equipment" ToRole="Maintenance" />
+    <NavigationProperty Name="Rentals" Relationship="InstrumentServicesModel.FK__Rentals__Equipme__4E88ABD4" FromRole="Equipment" ToRole="Rentals" />
+    <Property Name="EquipmentStatus_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EquipmentStatus" Relationship="InstrumentServicesModel.FK__Equipment__Equip__4D94879B1" FromRole="Equipment" ToRole="EquipmentStatus" />
   </EntityType>
   <EntityType Name="EquipmentCategories">
     <Key>
@@ -123,8 +106,12 @@
     <Property Name="ReservationDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Clients_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Clients" Relationship="Self.FK__Rentals__Clients__48CFD27E" FromRole="Rentals" ToRole="Clients" />
     <NavigationProperty Name="EquipmentRentals" Relationship="Self.FK__Equipment__Renta__5070F446" FromRole="Rentals" ToRole="EquipmentRentals" />
+    <NavigationProperty Name="Clients" Relationship="InstrumentServicesModel.FK__Rentals__Clients__48CFD27E" FromRole="Rentals" ToRole="Clients" />
+    <Property Name="Equipment_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Equipment" Relationship="InstrumentServicesModel.FK__Rentals__Equipme__4E88ABD4" FromRole="Rentals" ToRole="Equipment" />
+    <Property Name="RentalsStatus_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RentalsStatus" Relationship="InstrumentServicesModel.FK__Rentals__Rentals__5441852A" FromRole="Rentals" ToRole="RentalsStatus" />
   </EntityType>
   <EntityType Name="WorkTypes">
     <Key>
@@ -134,42 +121,6 @@
     <Property Name="NameWorkType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Maintenance" Relationship="Self.FK__Maintenan__WorkT__59063A47" FromRole="WorkTypes" ToRole="Maintenance" />
   </EntityType>
-  <Association Name="FK__Clients__ClientR__45F365D3">
-    <End Role="ClientRole" Type="Self.ClientRole" Multiplicity="0..1" />
-    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ClientRole">
-        <PropertyRef Name="ID_ClientRole" />
-      </Principal>
-      <Dependent Role="Clients">
-        <PropertyRef Name="ClientRole_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Clients__ClientT__44FF419A">
-    <End Role="ClientType" Type="Self.ClientType" Multiplicity="1" />
-    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ClientType">
-        <PropertyRef Name="ID_ClientType" />
-      </Principal>
-      <Dependent Role="Clients">
-        <PropertyRef Name="ClientType_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Rentals__Clients__48CFD27E">
-    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-    <End Role="Rentals" Type="Self.Rentals" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clients">
-        <PropertyRef Name="ID_Clients" />
-      </Principal>
-      <Dependent Role="Rentals">
-        <PropertyRef Name="Clients_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Employees__Emplo__3B75D760">
     <End Role="EmployeesRole" Type="Self.EmployeesRole" Multiplicity="1" />
     <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
@@ -256,7 +207,6 @@
   </Association>
   <EntityContainer Name="InstrumentServicesEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ClientRole" EntityType="Self.ClientRole" />
-    <EntitySet Name="Clients" EntityType="Self.Clients" />
     <EntitySet Name="ClientType" EntityType="Self.ClientType" />
     <EntitySet Name="Employees" EntityType="Self.Employees" />
     <EntitySet Name="EmployeesRole" EntityType="Self.EmployeesRole" />
@@ -267,18 +217,6 @@
     <EntitySet Name="MaintenanceStatus" EntityType="Self.MaintenanceStatus" />
     <EntitySet Name="Rentals" EntityType="Self.Rentals" />
     <EntitySet Name="WorkTypes" EntityType="Self.WorkTypes" />
-    <AssociationSet Name="FK__Clients__ClientR__45F365D3" Association="Self.FK__Clients__ClientR__45F365D3">
-      <End Role="ClientRole" EntitySet="ClientRole" />
-      <End Role="Clients" EntitySet="Clients" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Clients__ClientT__44FF419A" Association="Self.FK__Clients__ClientT__44FF419A">
-      <End Role="ClientType" EntitySet="ClientType" />
-      <End Role="Clients" EntitySet="Clients" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Rentals__Clients__48CFD27E" Association="Self.FK__Rentals__Clients__48CFD27E">
-      <End Role="Clients" EntitySet="Clients" />
-      <End Role="Rentals" EntitySet="Rentals" />
-    </AssociationSet>
     <AssociationSet Name="FK__Employees__Emplo__3B75D760" Association="Self.FK__Employees__Emplo__3B75D760">
       <End Role="EmployeesRole" EntitySet="EmployeesRole" />
       <End Role="Employees" EntitySet="Employees" />
@@ -307,5 +245,140 @@
       <End Role="WorkTypes" EntitySet="WorkTypes" />
       <End Role="Maintenance" EntitySet="Maintenance" />
     </AssociationSet>
+    <EntitySet Name="Clients" EntityType="InstrumentServicesModel.Clients" />
+    <AssociationSet Name="FK__Clients__ClientR__45F365D3" Association="InstrumentServicesModel.FK__Clients__ClientR__45F365D3">
+      <End Role="ClientRole" EntitySet="ClientRole" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Clients__ClientT__44FF419A" Association="InstrumentServicesModel.FK__Clients__ClientT__44FF419A">
+      <End Role="ClientType" EntitySet="ClientType" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rentals__Clients__48CFD27E" Association="InstrumentServicesModel.FK__Rentals__Clients__48CFD27E">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Rentals" EntitySet="Rentals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rentals__Equipme__4E88ABD4" Association="InstrumentServicesModel.FK__Rentals__Equipme__4E88ABD4">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="Rentals" EntitySet="Rentals" />
+    </AssociationSet>
+    <EntitySet Name="EquipmentStatus" EntityType="InstrumentServicesModel.EquipmentStatus" />
+    <AssociationSet Name="FK__Equipment__Equip__4D94879B1" Association="InstrumentServicesModel.FK__Equipment__Equip__4D94879B1">
+      <End Role="EquipmentStatus" EntitySet="EquipmentStatus" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <EntitySet Name="RentalsStatus" EntityType="InstrumentServicesModel.RentalsStatus" />
+    <AssociationSet Name="FK__Rentals__Rentals__5441852A" Association="InstrumentServicesModel.FK__Rentals__Rentals__5441852A">
+      <End Role="RentalsStatus" EntitySet="RentalsStatus" />
+      <End Role="Rentals" EntitySet="Rentals" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Clients" />
+    </Key>
+    <Property Name="ID_Clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PassportData" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ClientAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientType_ID" Type="Int32" Nullable="false" />
+    <Property Name="ClientRole_ID" Type="Int32" />
+    <NavigationProperty Name="ClientRole" Relationship="InstrumentServicesModel.FK__Clients__ClientR__45F365D3" FromRole="Clients" ToRole="ClientRole" />
+    <NavigationProperty Name="ClientType" Relationship="InstrumentServicesModel.FK__Clients__ClientT__44FF419A" FromRole="Clients" ToRole="ClientType" />
+    <NavigationProperty Name="Rentals" Relationship="InstrumentServicesModel.FK__Rentals__Clients__48CFD27E" FromRole="Clients" ToRole="Rentals" />
+  </EntityType>
+  <Association Name="FK__Clients__ClientR__45F365D3">
+    <End Type="InstrumentServicesModel.ClientRole" Role="ClientRole" Multiplicity="0..1" />
+    <End Type="InstrumentServicesModel.Clients" Role="Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientRole">
+        <PropertyRef Name="ID_ClientRole" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="ClientRole_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Clients__ClientT__44FF419A">
+    <End Type="InstrumentServicesModel.ClientType" Role="ClientType" Multiplicity="1" />
+    <End Type="InstrumentServicesModel.Clients" Role="Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientType">
+        <PropertyRef Name="ID_ClientType" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="ClientType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rentals__Clients__48CFD27E">
+    <End Type="InstrumentServicesModel.Clients" Role="Clients" Multiplicity="1" />
+    <End Type="InstrumentServicesModel.Rentals" Role="Rentals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Clients" />
+      </Principal>
+      <Dependent Role="Rentals">
+        <PropertyRef Name="Clients_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rentals__Equipme__4E88ABD4">
+    <End Type="InstrumentServicesModel.Equipment" Role="Equipment" Multiplicity="1" />
+    <End Type="InstrumentServicesModel.Rentals" Role="Rentals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="ID_Equipment" />
+      </Principal>
+      <Dependent Role="Rentals">
+        <PropertyRef Name="Equipment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EquipmentStatus">
+    <Key>
+      <PropertyRef Name="ID_EquipmentStatus" />
+    </Key>
+    <Property Name="ID_EquipmentStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EquipmentStatusName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Equipment" Relationship="InstrumentServicesModel.FK__Equipment__Equip__4D94879B1" FromRole="EquipmentStatus" ToRole="Equipment" />
+  </EntityType>
+  <Association Name="FK__Equipment__Equip__4D94879B1">
+    <End Type="InstrumentServicesModel.EquipmentStatus" Role="EquipmentStatus" Multiplicity="1" />
+    <End Type="InstrumentServicesModel.Equipment" Role="Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentStatus">
+        <PropertyRef Name="ID_EquipmentStatus" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="EquipmentStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RentalsStatus">
+    <Key>
+      <PropertyRef Name="ID_RentalsStatus" />
+    </Key>
+    <Property Name="ID_RentalsStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RentalsStatusName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rentals" Relationship="InstrumentServicesModel.FK__Rentals__Rentals__5441852A" FromRole="RentalsStatus" ToRole="Rentals" />
+  </EntityType>
+  <Association Name="FK__Rentals__Rentals__5441852A">
+    <End Type="InstrumentServicesModel.RentalsStatus" Role="RentalsStatus" Multiplicity="1" />
+    <End Type="InstrumentServicesModel.Rentals" Role="Rentals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalsStatus">
+        <PropertyRef Name="ID_RentalsStatus" />
+      </Principal>
+      <Dependent Role="Rentals">
+        <PropertyRef Name="RentalsStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

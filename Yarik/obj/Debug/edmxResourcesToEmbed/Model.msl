@@ -9,24 +9,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Clients">
-      <EntityTypeMapping TypeName="InstrumentServicesModel.Clients">
-        <MappingFragment StoreEntitySet="Clients">
-          <ScalarProperty Name="ID_Clients" ColumnName="ID_Clients" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="PassportData" ColumnName="PassportData" />
-          <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
-          <ScalarProperty Name="INN" ColumnName="INN" />
-          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
-          <ScalarProperty Name="ClientMiddleName" ColumnName="ClientMiddleName" />
-          <ScalarProperty Name="ClientType_ID" ColumnName="ClientType_ID" />
-          <ScalarProperty Name="ClientRole_ID" ColumnName="ClientRole_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ClientType">
       <EntityTypeMapping TypeName="InstrumentServicesModel.ClientType">
         <MappingFragment StoreEntitySet="ClientType">
@@ -61,6 +43,7 @@
     <EntitySetMapping Name="Equipment">
       <EntityTypeMapping TypeName="InstrumentServicesModel.Equipment">
         <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="EquipmentStatus_ID" ColumnName="EquipmentStatus_ID" />
           <ScalarProperty Name="ID_Equipment" ColumnName="ID_Equipment" />
           <ScalarProperty Name="EquipmentName" ColumnName="EquipmentName" />
           <ScalarProperty Name="InventoryNumber" ColumnName="InventoryNumber" />
@@ -110,6 +93,8 @@
     <EntitySetMapping Name="Rentals">
       <EntityTypeMapping TypeName="InstrumentServicesModel.Rentals">
         <MappingFragment StoreEntitySet="Rentals">
+          <ScalarProperty Name="RentalsStatus_ID" ColumnName="RentalsStatus_ID" />
+          <ScalarProperty Name="Equipment_ID" ColumnName="Equipment_ID" />
           <ScalarProperty Name="ID_Rentals" ColumnName="ID_Rentals" />
           <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />
           <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
@@ -124,6 +109,40 @@
         <MappingFragment StoreEntitySet="WorkTypes">
           <ScalarProperty Name="ID_WorkTypes" ColumnName="ID_WorkTypes" />
           <ScalarProperty Name="NameWorkType" ColumnName="NameWorkType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="InstrumentServicesModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ClientRole_ID" ColumnName="ClientRole_ID" />
+          <ScalarProperty Name="ClientType_ID" ColumnName="ClientType_ID" />
+          <ScalarProperty Name="ClientMiddleName" ColumnName="ClientMiddleName" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+          <ScalarProperty Name="PassportData" ColumnName="PassportData" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ID_Clients" ColumnName="ID_Clients" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentStatus">
+      <EntityTypeMapping TypeName="InstrumentServicesModel.EquipmentStatus">
+        <MappingFragment StoreEntitySet="EquipmentStatus">
+          <ScalarProperty Name="EquipmentStatusName" ColumnName="EquipmentStatusName" />
+          <ScalarProperty Name="ID_EquipmentStatus" ColumnName="ID_EquipmentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentalsStatus">
+      <EntityTypeMapping TypeName="InstrumentServicesModel.RentalsStatus">
+        <MappingFragment StoreEntitySet="RentalsStatus">
+          <ScalarProperty Name="RentalsStatusName" ColumnName="RentalsStatusName" />
+          <ScalarProperty Name="ID_RentalsStatus" ColumnName="ID_RentalsStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

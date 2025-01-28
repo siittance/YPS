@@ -26,7 +26,6 @@ namespace Yarik
         }
     
         public virtual DbSet<ClientRole> ClientRole { get; set; }
-        public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<ClientType> ClientType { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<EmployeesRole> EmployeesRole { get; set; }
@@ -37,5 +36,8 @@ namespace Yarik
         public virtual DbSet<MaintenanceStatus> MaintenanceStatus { get; set; }
         public virtual DbSet<Rentals> Rentals { get; set; }
         public virtual DbSet<WorkTypes> WorkTypes { get; set; }
+        public virtual DbSet<Clients> Clients { get; set; }
+        public virtual DbSet<EquipmentStatus> EquipmentStatus { get; set; }
+        public virtual DbSet<RentalsStatus> RentalsStatus { get; set; }
     }
 }
