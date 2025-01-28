@@ -111,7 +111,7 @@
     <Property Name="ID_Rentals" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RentalDate" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="ReturnDate" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="ReservationDate" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="ReservationDate" Type="varchar" MaxLength="12" />
     <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Clients_ID" Type="int" Nullable="false" />
     <Property Name="Equipment_ID" Type="int" Nullable="false" />

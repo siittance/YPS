@@ -144,10 +144,21 @@ namespace Yarik
 
             var selectedEquipment = EquipmentWatch.SelectedItem as Equipment;
 
+            bool isUsedInRentals = yp.Rentals.Any(r => r.Equipment_ID == selectedEquipment.ID_Equipment && r.RentalsStatus_ID != 2); 
+            bool isUsedInMaintenance = yp.Maintenance.Any(m => m.Equipment_ID == selectedEquipment.ID_Equipment && m.MaintenanceStatus_ID != 1); 
+
+            if (isUsedInRentals || isUsedInMaintenance)
+            {
+                MessageBox.Show("Невозможно удалить оборудование, так как оно используется в аренде или обслуживании.", "Ошибка");
+                return;
+            }
+
             yp.Equipment.Remove(selectedEquipment);
             yp.SaveChanges();
 
             EquipmentWatch.ItemsSource = yp.Equipment.ToList();
+
+            MessageBox.Show("Оборудование было успешно удалено.", "Успешно");
         }
 
         private void Clear(object sender, RoutedEventArgs eventArgs)

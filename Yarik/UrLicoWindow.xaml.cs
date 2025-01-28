@@ -200,9 +200,18 @@ namespace Yarik
             }
 
             Clients selectedClient = ClientsWatch.SelectedItem as Clients;
+
+            var rentals = yp.Rentals.Any(r => r.Clients_ID == selectedClient.ID_Clients);
+
+            if (rentals)
+            {
+                MessageBox.Show("Нельзя удалить есть связи", "Ошибка");
+                return;
+            }
+
             yp.Clients.Remove(selectedClient);
             yp.SaveChanges();
-            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 1).ToList();
+            ClientsWatch.ItemsSource = yp.Clients.Where(c => c.ClientType_ID == 2).ToList();
             Clear(null, null);
         }
 

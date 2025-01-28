@@ -43,7 +43,7 @@ namespace Yarik
             var selectedClient = Client.SelectedItem as Clients;
             var selectedEquipment = Oborudovanie.SelectedItem as Equipment;
 
-            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) || string.IsNullOrEmpty(reservationDate) || string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
+            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate)  || string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
                 return;
@@ -97,7 +97,7 @@ namespace Yarik
             var selectedClient = Client.SelectedItem as Clients;
             var selectedEquipment = Oborudovanie.SelectedItem as Equipment;
 
-            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) || string.IsNullOrEmpty(reservationDate) || string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
+            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) ||  string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
                 return;
@@ -158,8 +158,13 @@ namespace Yarik
 
         private bool IsValidDate(string date)
         {
+            if (string.IsNullOrEmpty(date))
+            {
+                return true;
+            }
             return Regex.IsMatch(date, @"^\d{2}\.\d{2}\.\d{4}$");
         }
+
 
         private void RentalsPerenos(object sender, SelectionChangedEventArgs e)
         {

@@ -103,7 +103,7 @@
     <Property Name="ID_Rentals" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RentalDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ReturnDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ReservationDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReservationDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Clients_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="EquipmentRentals" Relationship="Self.FK__Equipment__Renta__5070F446" FromRole="Rentals" ToRole="EquipmentRentals" />
