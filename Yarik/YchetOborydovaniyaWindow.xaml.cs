@@ -22,6 +22,10 @@ namespace Yarik
             Status.SelectedValuePath = "ID_EquipmentStatus";
 
             EquipmentWatch.ItemsSource = yp.Equipment.ToList();
+
+            Filter.ItemsSource = yp.EquipmentStatus.ToList();
+            Filter.DisplayMemberPath = "EquipmentStatusName";
+            Filter.SelectedValuePath = "ID_EquipmentStatus";
         }
 
         private void Back(object sender, RoutedEventArgs e)
@@ -170,6 +174,7 @@ namespace Yarik
             PriceZa1.Text = null;
             Category.Text = null;
             Status.Text = null;
+            Filter.Text = null;
         }
 
         private void EquipmentPerenos(object sender, SelectionChangedEventArgs e)
@@ -183,6 +188,20 @@ namespace Yarik
                 PriceZa1.Text = selectedEquipment.UnitCost.ToString();
                 Category.SelectedValue = selectedEquipment.EquipmentCategories_ID;
                 Status.SelectedValue = selectedEquipment.EquipmentStatus_ID;
+            }
+        }
+
+        private void ComboFilter(object sender, SelectionChangedEventArgs e)
+        {
+            if (Filter.SelectedItem is EquipmentStatus selectedStatus)
+            {
+                EquipmentWatch.ItemsSource = yp.Equipment
+                    .Where(item => item.EquipmentStatus_ID == selectedStatus.ID_EquipmentStatus)
+                    .ToList();
+            }
+            else
+            {
+                EquipmentWatch.ItemsSource = yp.Equipment.ToList();
             }
         }
     }

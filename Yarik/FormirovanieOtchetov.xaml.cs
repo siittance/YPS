@@ -11,6 +11,7 @@ using PdfBrushes = Spire.Pdf.Graphics.PdfBrushes;
 using PdfPageBase = Spire.Pdf.PdfPageBase;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
+using System.Globalization;
 
 namespace Yarik
 {
@@ -50,6 +51,10 @@ namespace Yarik
             RentalsWatch.Visibility = Visibility.Collapsed;
             EquipmentWatch.Visibility = Visibility.Collapsed;
 
+            bool isDateFilterEnabled = selectedReport == "Доходы от аренды за период";
+            StartDatePicker.IsEnabled = isDateFilterEnabled;
+            EndDatePicker.IsEnabled = isDateFilterEnabled;
+
             switch (selectedReport)
             {
                 case "Доходы от аренды за период":
@@ -78,27 +83,32 @@ namespace Yarik
 
         private void TxtForm()
         {
-            string txtFilePath2 = System.IO.Path.Combine("output_1.txt");
-            string pdfFilePath2 = "";
+            if (ReportComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите отчет перед генерацией.");
+                return;
+            }
 
             string selectedReport = ReportComboBox.SelectedItem.ToString();
-            if (selectedReport == "Доходы от аренды за период")
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string reportsFolderPath = Path.Combine(desktopPath, "Отчёты");
+
+            if (!Directory.Exists(reportsFolderPath))
             {
-                pdfFilePath2 = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Отчет_Доходы_от_аренды.pdf");
-            }
-            else if (selectedReport == "Список оборудования в аренде")
-            {
-                pdfFilePath2 = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Отчет_Оборудование_в_аренде.pdf");
-            }
-            else if (selectedReport == "Статистика популярности оборудования")
-            {
-                pdfFilePath2 = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Отчет_Статистика_популярности.pdf");
+                Directory.CreateDirectory(reportsFolderPath);
             }
 
-            using (FileStream fs = new FileStream(txtFilePath2, FileMode.Create, FileAccess.Write, FileShare.None))
+            // Абсолютный путь для временного текстового файла
+            string txtFilePath = Path.Combine(reportsFolderPath, "dlyageneracii.txt");
+            string pdfFilePath = Path.Combine(reportsFolderPath, $"Отчет_{selectedReport}.pdf");
+
+            // Проверим, где сохраняется файл
+            MessageBox.Show($"Файл будет сохранен по пути: {txtFilePath}");
+
+            using (FileStream fs = new FileStream(txtFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
             using (StreamWriter writer = new StreamWriter(fs, Encoding.UTF8))
             {
-                string header = "Отчет по аренде";
+                string header = $"Отчет: {selectedReport}";
                 int lineWidth = 70;
 
                 string CenterString(string text, int width)
@@ -111,11 +121,24 @@ namespace Yarik
                 writer.WriteLine(CenterString(header, lineWidth));
                 writer.WriteLine(new string('-', lineWidth));
 
-                decimal totalRevenue = 0;
-
                 if (selectedReport == "Доходы от аренды за период")
                 {
-                    var rentalsData = _context.Rentals
+                    if (!StartDatePicker.SelectedDate.HasValue || !EndDatePicker.SelectedDate.HasValue)
+                    {
+                        MessageBox.Show("Необходимо выбрать начальную и конечную даты.");
+                        return;
+                    }
+
+                    DateTime startDate = StartDatePicker.SelectedDate.Value.Date;
+                    DateTime endDate = EndDatePicker.SelectedDate.Value.Date;
+
+                    if (startDate > endDate)
+                    {
+                        MessageBox.Show("Дата начала не может быть позже даты окончания.");
+                        return;
+                    }
+
+                    var allRentalsData = _context.Rentals
                         .Select(r => new
                         {
                             r.RentalDate,
@@ -128,22 +151,44 @@ namespace Yarik
                         })
                         .ToList();
 
+                    var rentalsData = allRentalsData
+                        .Where(r =>
+                        {
+                            if (string.IsNullOrEmpty(r.RentalDate))
+                            {
+                                return false;
+                            }
+
+                            DateTime rentalDate;
+                            bool isValidDate = DateTime.TryParseExact(r.RentalDate.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out rentalDate);
+
+                            return isValidDate && rentalDate >= startDate && rentalDate <= endDate;
+                        })
+                        .ToList();
+
+                    if (!rentalsData.Any())
+                    {
+                        MessageBox.Show("За выбранный период нет данных о доходах.");
+                        return;
+                    }
+
+                    decimal totalRevenue = 0;
                     foreach (var rental in rentalsData)
                     {
-                        string FullName = $"{rental.ClientName} {rental.ClientSurname}";
-                        writer.WriteLine($"{"ФИО клиента:",-20} {FullName}");
-                        writer.WriteLine($"{"Оборудование:",-20} {rental.EquipmentName}");
-                        writer.WriteLine($"{"Дата аренды:",-20} {rental.RentalDate}");
-                        writer.WriteLine($"{"Дата возврата:",-20} {rental.ReturnDate}");
-                        writer.WriteLine($"{"Статус аренды:",-20} {rental.RentalsStatus}");
-                        writer.WriteLine($"{"Сумма оплаты:",-20} {rental.TotalCost}");
+                        string fullName = $"{rental.ClientName} {rental.ClientSurname}";
+                        writer.WriteLine($"ФИО клиента: {fullName}");
+                        writer.WriteLine($"Оборудование: {rental.EquipmentName}");
+                        writer.WriteLine($"Дата аренды: {rental.RentalDate}");
+                        writer.WriteLine($"Дата возврата: {rental.ReturnDate}");
+                        writer.WriteLine($"Статус аренды: {rental.RentalsStatus}");
+                        writer.WriteLine($"Сумма оплаты: {rental.TotalCost}");
                         writer.WriteLine(new string('-', lineWidth));
 
                         totalRevenue += rental.TotalCost;
                     }
-
-                    writer.WriteLine($"{"Общая сумма дохода за период:",-20} {totalRevenue}");
+                    writer.WriteLine($"Общая сумма дохода за период: {totalRevenue}");
                 }
+
                 else if (selectedReport == "Список оборудования в аренде")
                 {
                     var equipmentData = _context.Equipment
@@ -190,21 +235,39 @@ namespace Yarik
                         writer.WriteLine(new string('-', lineWidth));
                     }
                 }
+
+                writer.Flush();
             }
 
-            ConvertTxtToPdf(txtFilePath2, pdfFilePath2);
-            File.Delete(txtFilePath2);
+            // Проверим, что файл существует и его содержимое
+            if (File.Exists(txtFilePath))
+            {
+                MessageBox.Show($"Файл успешно создан. Путь: {txtFilePath}");
+            }
+            else
+            {
+                MessageBox.Show($"Ошибка: файл не создан.");
+            }
+
+            // Преобразуем текстовый файл в PDF
+            ConvertTxtToPdf(txtFilePath, pdfFilePath);
         }
 
         private void ConvertTxtToPdf(string txtFilePath, string pdfFilePath)
         {
             try
             {
+                if (!File.Exists(txtFilePath))
+                {
+                    MessageBox.Show($"Текстовый файл не найден: {txtFilePath}");
+                    return;
+                }
+
                 using (PdfDocument document = new PdfDocument())
                 {
                     PdfPageBase page = document.Pages.Add();
 
-                    string fontPath = @"C:\Windows\Fonts\times.ttf"; 
+                    string fontPath = @"C:\Windows\Fonts\times.ttf";
                     float fontSize = 12f;
 
                     PdfTrueTypeFont font = new PdfTrueTypeFont(fontPath, fontSize);
@@ -220,6 +283,7 @@ namespace Yarik
                         y += lineHeight;
                     }
                     document.SaveToFile(pdfFilePath);
+
                     MessageBox.Show($"PDF файл успешно создан: {pdfFilePath}");
                 }
             }
@@ -230,6 +294,12 @@ namespace Yarik
         }
 
 
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            StartDatePicker.Text = null;
+            EndDatePicker.Text = null;
+            ReportComboBox.Text = null;
+        }
     }
 }
 

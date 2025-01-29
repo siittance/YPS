@@ -1,22 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Yarik
 {
-    /// <summary>
-    /// Логика взаимодействия для YchetObslyshivaniyaWindow.xaml
-    /// </summary>
     public partial class YchetObslyshivaniyaWindow : Window
     {
         InstrumentServicesEntities1 yp = new InstrumentServicesEntities1();
@@ -24,15 +12,15 @@ namespace Yarik
         public YchetObslyshivaniyaWindow()
         {
             InitializeComponent();
-            ComboOborudov.ItemsSource = yp.Maintenance.ToList();
+            ComboOborudov.ItemsSource = yp.Equipment.ToList();
             ComboOborudov.SelectedValuePath = "ID_Equipment";
             ComboOborudov.DisplayMemberPath = "EquipmentName";
 
-            ComboTypeWork.ItemsSource = yp.Maintenance.ToList();
+            ComboTypeWork.ItemsSource = yp.WorkTypes.ToList();
             ComboTypeWork.SelectedValuePath = "ID_WorkTypes";
             ComboTypeWork.DisplayMemberPath = "NameWorkType";
 
-            ComboStatus.ItemsSource = yp.Maintenance.ToList();
+            ComboStatus.ItemsSource = yp.MaintenanceStatus.ToList();
             ComboStatus.SelectedValuePath = "ID_MaintenanceStatus";
             ComboStatus.DisplayMemberPath = "MainStatus";
         }
@@ -44,6 +32,11 @@ namespace Yarik
             this.Close();
         }
 
+        private bool IsValidDate(string date)
+        {
+            return DateTime.TryParseExact(date, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out _);
+        }
+
         private void Add(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(DateObslText.Text) ||
@@ -52,6 +45,12 @@ namespace Yarik
                 ComboStatus.SelectedItem == null)
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
+                return;
+            }
+
+            if (!IsValidDate(DateObslText.Text))
+            {
+                MessageBox.Show("Введите дату в формате ДД.ММ.ГГГГ", "Ошибка");
                 return;
             }
 
@@ -86,6 +85,12 @@ namespace Yarik
                 return;
             }
 
+            if (!IsValidDate(DateObslText.Text))
+            {
+                MessageBox.Show("Введите дату в формате ДД.ММ.ГГГГ", "Ошибка");
+                return;
+            }
+
             Maintenance selectedMaintenance = MaintenanceWatch.SelectedItem as Maintenance;
             selectedMaintenance.MaintenanceDate = DateObslText.Text;
             selectedMaintenance.Equipment_ID = (ComboOborudov.SelectedItem as Equipment)?.ID_Equipment ?? 0;
@@ -99,10 +104,10 @@ namespace Yarik
 
         private void Clear(object sender, RoutedEventArgs e)
         {
-            ComboOborudov.Text = null;
+            ComboOborudov.SelectedIndex = -1;
             DateObslText.Text = null;
-            ComboTypeWork.Text = null;
-            ComboStatus.Text = null;                
+            ComboTypeWork.SelectedIndex = -1;
+            ComboStatus.SelectedIndex = -1;
         }
 
         private void MaintenancePerenos(object sender, SelectionChangedEventArgs e)
@@ -116,5 +121,5 @@ namespace Yarik
                 ComboStatus.SelectedValue = selectedMaintenance.MaintenanceStatus_ID;
             }
         }
-    }                               
+    }
 }

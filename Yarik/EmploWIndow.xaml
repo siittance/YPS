@@ -60,6 +60,5 @@
             </Button.Clip>
         </Button>
         <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        
     </Grid>
 </Window>

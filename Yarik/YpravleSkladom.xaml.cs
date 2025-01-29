@@ -14,7 +14,7 @@ namespace Yarik
         {
             InitializeComponent();
             EquipmentWatch.ItemsSource = yp.Equipment.ToList();
-            Oborudovanie.ItemsSource = yp.EmployeesRole.ToList();
+            Oborudovanie.ItemsSource = yp.Equipment.ToList();
             Oborudovanie.SelectedValuePath = "ID_Equipment";
             Oborudovanie.DisplayMemberPath = "EquipmentName";
         }
@@ -29,7 +29,7 @@ namespace Yarik
 
         private void ZakazButton(object sender, RoutedEventArgs e)
         {
-            if (EquipmentWatch.SelectedItem is Equipment selectedEquipment &&
+            if (Oborudovanie.SelectedItem is Equipment selectedEquipment &&
                 int.TryParse(HowTextBox.Text, out int orderQuantity) && orderQuantity > 0)
             {
                 selectedEquipment.StockCount += orderQuantity;

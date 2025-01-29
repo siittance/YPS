@@ -109,3 +109,7 @@ C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\System.Buffers.xml
 C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\System.Memory.xml
 C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\itextsharp.dll
+C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\siitt\Source\Repos\YPS\Yarik\bin\Debug\itextsharp.xml

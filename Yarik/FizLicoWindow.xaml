@@ -67,7 +67,6 @@
               SelectionChanged="RealizaciaPerexoda"
              />
         </Border>
-
         <TextBlock Background="#D2E6F3" Foreground="#032E66" />
         <Button Background="#6C99C3" Width="30" Height="30"  BorderThickness="0" Click="Back">
             <Button.Clip>
