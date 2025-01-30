@@ -16,11 +16,19 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Менеджер" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#032E66"/>
-        <Button Grid.Row="1" Background="#6C99C3" Width="600" Height="70" Content="Учет оборудования"  FontSize="14" Foreground="White" Click="YchetOborud"/>
-        <Button Grid.Row="2" Background="#6C99C3" Width="600" Height="70" Content="Управление арендой"  FontSize="14" Foreground="White" Click="YpravArend"/>
-        <Button Grid.Row="3" Background="#6C99C3" Width="600" Height="70" Content="Формирование отчетов"  FontSize="14" Foreground="White" Click="FormOtchetov"/>
-        <Button Grid.Row="4" Background="#6C99C3" Width="600" Height="70" Content="Управление клиентами"  FontSize="14" Foreground="White" Click="YpravClient"/>
-        <Button Grid.Row="5" Background="#FF0000" Width="600" Height="70" Content="Выйти"  FontSize="14" Foreground="White" Click="Exit"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Менеджер" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#032E66" Grid.ColumnSpan="4"/>
+        <Button Grid.Row="1" Background="#6C99C3" Width="600" Height="70" Content="Учет оборудования"  FontSize="14" Foreground="White" Click="YchetOborud" Grid.ColumnSpan="4"/>
+        <Button Grid.Row="2" Background="#6C99C3" Width="600" Height="70" Content="Управление арендой"  FontSize="14" Foreground="White" Click="YpravArend" Grid.ColumnSpan="4"/>
+        <Button Grid.Row="3" Background="#6C99C3" Width="600" Height="70" Content="Формирование отчетов"  FontSize="14" Foreground="White" Click="FormOtchetov" Grid.ColumnSpan="4"/>
+        <Button Grid.Row="4" Background="#6C99C3" Width="600" Height="70" Content="Управление клиентами"  FontSize="14" Foreground="White" Click="YpravClient" Grid.ColumnSpan="4"/>
+        <Button Grid.Row="5" Background="#FF0000" Width="600" Height="70" Content="Выйти"  FontSize="14" Foreground="White" Click="Exit" Grid.ColumnSpan="4"/>
+        <TextBlock Grid.Row="0" Name="RentalWarningsTextBlock" Grid.Column="0" Text="Нет предупреждений" FontSize="16" Foreground="Red" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
     </Grid>
 </Window>

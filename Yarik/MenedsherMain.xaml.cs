@@ -5,24 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Yarik
 {
-	/// <summary>
-	/// Логика взаимодействия для AdminMain.xaml
-	/// </summary>
-	public partial class MenedsherMain : Window
-	{
-		public MenedsherMain()
-		{
-			InitializeComponent();
-		}
+    public partial class MenedsherMain : Window
+    {
+        InstrumentServicesEntities1 yp = new InstrumentServicesEntities1();
+
+        public MenedsherMain()
+        {
+            InitializeComponent();
+            DisplayRentalWarnings();
+        }
+
+        private void DisplayRentalWarnings()
+        {
+            DateTime tomorrow = DateTime.Now.AddDays(1);
+            List<string> warnings = new List<string>();
+
+            foreach (var item in yp.Rentals)
+            {
+                DateTime dateObject;
+                if (!DateTime.TryParse(item.ReturnDate, out dateObject))
+                {
+                    continue;
+                }
+                TimeSpan difference = tomorrow - dateObject.Date;
+                if (difference.Days <= 2 && difference.Days > 0)
+                {
+                    warnings.Add($"Срок аренды у оборудования с номером: {item.Equipment.InventoryNumber} заканчивается через {difference.Days} дня!");
+                }
+            }
+
+            if (warnings.Any())
+            {
+                RentalWarningsTextBlock.Text = string.Join("\n", warnings);
+            }
+        }
 
         private void YchetOborud(object sender, RoutedEventArgs e)
         {
@@ -58,6 +78,5 @@ namespace Yarik
             mainWindow.Show();
             this.Close();
         }
-
     }
 }

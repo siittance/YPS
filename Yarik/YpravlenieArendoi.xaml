@@ -42,7 +42,7 @@
                 <DataGridTextColumn Binding="{Binding ReturnDate}" Header="Дата окончания аренды"/>
                 <DataGridTextColumn Binding="{Binding ReservationDate}" Header="Дата бронирования"/>
                 <DataGridTextColumn Binding="{Binding TotalCost}" Header="Сумма оплаты"/>
-                <DataGridTextColumn Binding="{Binding Clients.ClientName}" Header="Клиент"/>
+                <DataGridTextColumn Binding="{Binding Clients.Email}" Header="Клиент"/>
                 <DataGridTextColumn Binding="{Binding Equipment.EquipmentName}" Header="Оборудование"/>
                 <DataGridTextColumn Binding="{Binding RentalsStatus.RentalsStatusName}" Header="Статус заказа"/>
             </DataGrid.Columns>

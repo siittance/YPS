@@ -111,7 +111,7 @@ namespace Yarik
             var selectedClient = Client.SelectedItem as Clients;
             var selectedEquipment = Oborudovanie.SelectedItem as Equipment;
 
-            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) ||  string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
+            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) || string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
                 return;
@@ -129,7 +129,7 @@ namespace Yarik
                 return;
             }
 
-            RentalsStatus rentalStatus = GetRentalStatus(startDate, endDate);  
+            RentalsStatus rentalStatus = GetRentalStatus(startDate, endDate);
 
             selectedRental.RentalDate = startDate;
             selectedRental.ReturnDate = endDate;
@@ -137,12 +137,69 @@ namespace Yarik
             selectedRental.TotalCost = cost;
             selectedRental.Clients_ID = selectedClient.ID_Clients;
             selectedRental.Equipment_ID = selectedEquipment.ID_Equipment;
-            selectedRental.RentalsStatus_ID = rentalStatus.ID_RentalsStatus;  
+            selectedRental.RentalsStatus_ID = rentalStatus.ID_RentalsStatus;
 
             yp.SaveChanges();
+            GenerateExtensionDocument(selectedRental);
 
             RentalsWatch.ItemsSource = yp.Rentals.ToList();
         }
+
+        private void GenerateExtensionDocument(Rentals rental)
+        {
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string contractsFolderPath = Path.Combine(desktopPath, "Договора");
+
+            if (!Directory.Exists(contractsFolderPath))
+            {
+                Directory.CreateDirectory(contractsFolderPath);
+            }
+
+            string extensionFileName = $"Приложение_к_Договору_{rental.ID_Rentals}.pdf";
+            string extensionFilePath = Path.Combine(contractsFolderPath, extensionFileName);
+
+            using (PdfDocument document = new PdfDocument())
+            {
+                PdfPageBase page = document.Pages.Add();
+                string fontPath = @"C:\\Windows\\Fonts\\times.ttf";
+                float fontSize = 12f;
+                PdfTrueTypeFont font = new PdfTrueTypeFont(fontPath, fontSize);
+                PdfStringFormat format = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Top);
+
+                float y = 20;
+                float lineHeight = font.MeasureString("A").Height + 2;
+
+                string header = "ПРИЛОЖЕНИЕ К ДОГОВОРУ АРЕНДЫ";
+                float headerWidth = font.MeasureString(header).Width;
+                float pageWidth = page.Canvas.ClientSize.Width;
+                float xPosition = (pageWidth - headerWidth) / 2;
+
+                page.Canvas.DrawString(header, font, PdfBrushes.Black, new PointF(xPosition, y), format);
+                y += lineHeight * 2;
+
+                page.Canvas.DrawString($"Клиент: {rental.Clients.ClientName} {rental.Clients.ClientSurname}", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+                page.Canvas.DrawString($"Оборудование: {rental.Equipment.EquipmentName}", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+                page.Canvas.DrawString($"Старая дата возврата: {rental.RentalDate}", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+                page.Canvas.DrawString($"Новая дата возврата: {rental.ReturnDate}", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+                page.Canvas.DrawString($"Общая сумма аренды после продления: {rental.TotalCost} руб.", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight * 2;
+
+                page.Canvas.DrawString("Подписи сторон:", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight * 2;
+                page.Canvas.DrawString("_________________________  (ФИО заказчика)", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+                page.Canvas.DrawString("_________________________  (ФИО представителя компании)", font, PdfBrushes.Black, new PointF(20, y), format);
+                y += lineHeight;
+
+                document.SaveToFile(extensionFilePath);
+                MessageBox.Show($"Приложение к договору успешно создано: {extensionFilePath}");
+            }
+        }
+
 
 
         private void Clear(object sender, RoutedEventArgs e)
@@ -153,22 +210,6 @@ namespace Yarik
             CheckBill.Text = null;
             Client.SelectedIndex = -1;
             Oborudovanie.SelectedIndex = -1;
-        }
-
-        private void Delete(object sender, RoutedEventArgs e)
-        {
-            if (RentalsWatch.SelectedItem == null)
-            {
-                MessageBox.Show("Выберите аренду для удаления", "Ошибка");
-                return;
-            }
-
-
-            Rentals selectedRental = RentalsWatch.SelectedItem as Rentals;
-            yp.Rentals.Remove(selectedRental);
-            yp.SaveChanges();
-            RentalsWatch.ItemsSource = yp.Rentals.ToList();
-            Clear(null, null);
         }
 
         private void GenerateContract(Rentals rental)
