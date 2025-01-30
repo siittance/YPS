@@ -224,8 +224,7 @@ namespace Yarik
                 ClientSurname.Text = selectedCl.ClientSurname;
                 ClientMiddleName.Text = selectedCl.ClientMiddleName;
                 Email.Text = selectedCl.Email;
-                PhoneNumber.Text = selectedCl.PhoneNumber;
-                PassportData.Text = selectedCl.PhoneNumber;
+                PassportData.Text = selectedCl.PassportData;
             }
         }
 
