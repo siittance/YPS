@@ -27,8 +27,8 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <ComboBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование" Padding="10" FontSize="14" x:Name="Oborudovanie"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сколько заказать на склад" Padding="10" FontSize="14" x:Name="HowTextBox"/>
+        <ComboBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование*" Padding="10" FontSize="14" x:Name="Oborudovanie"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сколько заказать на склад*" Padding="10" FontSize="14" x:Name="HowTextBox"/>
         <Button Grid.Row="10" Grid.Column="2" Background="#6C99C3" Width="350" Content="Заказать на склад" FontSize="14" Foreground="White" Click="ZakazButton"/>
         <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>
         <DataGrid Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Background="#C4C4C4" x:Name="EquipmentWatch" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False">

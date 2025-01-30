@@ -27,12 +27,12 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата начала" Padding="10" FontSize="14" x:Name="StartDate"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата окончания" Padding="10" FontSize="14" x:Name="EndDate"/>
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата начала*" Padding="10" FontSize="14" x:Name="StartDate"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата окончания*" Padding="10" FontSize="14" x:Name="EndDate"/>
         <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Дата брони" Padding="10" FontSize="14" x:Name="DateRezervation"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сумма оплаты" Padding="10" FontSize="14" x:Name="CheckBill"/>
-        <ComboBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Клиент" Padding="10" FontSize="14" x:Name="Client"/>
-        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование" Padding="10" FontSize="14" x:Name="Oborudovanie"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Сумма оплаты*" Padding="10" FontSize="14" x:Name="CheckBill"/>
+        <ComboBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Клиент*" Padding="10" FontSize="14" x:Name="Client"/>
+        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Оборудование*" Padding="10" FontSize="14" x:Name="Oborudovanie"/>
         <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
         <Button Grid.Row="10" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>
         <Button Grid.Row="11" Grid.Column="2" Background="#0D52AC" Width="350" Content="Очистить поля" FontSize="14" Foreground="White" Click="Clear"/>

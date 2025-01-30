@@ -67,6 +67,26 @@ namespace Yarik
                 return;
             }
 
+            DateTime enteredDate = DateTime.ParseExact(StartDate.Text, "dd.MM.yyyy", null);
+            DateTime enteredDate1 = DateTime.ParseExact(EndDate.Text, "dd.MM.yyyy", null);
+            DateTime enteredDate2 = DateTime.ParseExact(DateRezervation.Text, "dd.MM.yyyy", null);
+
+            DateTime minDate = DateTime.Today.AddYears(-1);
+            DateTime maxDate = DateTime.Today.AddYears(1);
+
+            if (enteredDate < minDate || enteredDate1 < minDate || enteredDate2 < minDate)
+            {
+                MessageBox.Show($"Дата не может быть раньше {minDate:dd.MM.yyyy}", "Ошибка");
+                StartDate.Text = string.Empty;
+                return;
+            }
+
+            if (enteredDate < maxDate || enteredDate1 < maxDate || enteredDate2 < maxDate)
+            {
+                MessageBox.Show($"Дата не может быть позже {maxDate:dd.MM.yyyy}", "Ошибка");
+                StartDate.Text = string.Empty;
+            }
+
             if (!decimal.TryParse(totalCost, out decimal cost) || cost <= 0)
             {
                 MessageBox.Show("Некорректная сумма оплаты", "Ошибка");

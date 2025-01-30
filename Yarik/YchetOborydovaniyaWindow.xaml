@@ -27,13 +27,13 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="370"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название" Padding="10" FontSize="14" x:Name="Name"/>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Номер" Padding="10" FontSize="14" x:Name="Number"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Рентальная цена" Padding="10" FontSize="14"  x:Name="RentPrice"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Количество" Padding="10" FontSize="14"  x:Name="Count"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Стоимость за единицу" Padding="10" FontSize="14"  x:Name="PriceZa1"/>
-        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Категория" Padding="10" FontSize="14"  x:Name="Category"/>
-        <ComboBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Статус" Padding="10" FontSize="14"  x:Name="Status"/>
+        <TextBox Grid.Row="0" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Название*" Padding="10" FontSize="14" x:Name="Name"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Номер*" Padding="10" FontSize="14" x:Name="Number"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Рентальная цена*" Padding="10" FontSize="14"  x:Name="RentPrice"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Количество*" Padding="10" FontSize="14"  x:Name="Count"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Стоимость за единицу*" Padding="10" FontSize="14"  x:Name="PriceZa1"/>
+        <ComboBox Grid.Row="5" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Категория*" Padding="10" FontSize="14"  x:Name="Category"/>
+        <ComboBox Grid.Row="6" Grid.Column="2" Width="350" Height="40" Background="#D2E6F3"  materialDesign:HintAssist.Hint="Статус*" Padding="10" FontSize="14"  x:Name="Status"/>
         <ComboBox Grid.Row="7" Grid.Column="2" Width="350" Height="40" Background="#6C99C3"  materialDesign:HintAssist.Hint="Фильтр" Padding="10" FontSize="14"  x:Name="Filter" SelectionChanged="ComboFilter"/>
         <Button Grid.Row="8" Grid.Column="2" Background="#6C99C3" Width="350" Content="Добавить" FontSize="14" Foreground="White" Click="Add"/>
         <Button Grid.Row="9" Grid.Column="2" Background="#6C99C3" Width="350" Content="Изменить" FontSize="14" Foreground="White" Click="Update"/>

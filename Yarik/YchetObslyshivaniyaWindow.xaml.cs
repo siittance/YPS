@@ -12,6 +12,7 @@ namespace Yarik
         public YchetObslyshivaniyaWindow()
         {
             InitializeComponent();
+            MaintenanceWatch.ItemsSource = yp.Maintenance.ToList();
             ComboOborudov.ItemsSource = yp.Equipment.ToList();
             ComboOborudov.SelectedValuePath = "ID_Equipment";
             ComboOborudov.DisplayMemberPath = "EquipmentName";
@@ -54,6 +55,24 @@ namespace Yarik
                 return;
             }
 
+            DateTime enteredDate = DateTime.ParseExact(DateObslText.Text, "dd.MM.yyyy", null);
+
+            DateTime minDate = DateTime.Today.AddYears(-1); 
+            DateTime maxDate = DateTime.Today.AddYears(1); 
+
+            if (enteredDate < minDate)
+            {
+                MessageBox.Show($"Дата не может быть раньше {minDate:dd.MM.yyyy}", "Ошибка");
+                DateObslText.Text = string.Empty;
+                return;
+            }
+
+            if (enteredDate > maxDate)
+            {
+                MessageBox.Show($"Дата не может быть позже {maxDate:dd.MM.yyyy}", "Ошибка");
+                DateObslText.Text = string.Empty;
+            }
+
             Maintenance newMaintenance = new Maintenance
             {
                 MaintenanceDate = DateObslText.Text,
@@ -89,6 +108,24 @@ namespace Yarik
             {
                 MessageBox.Show("Введите дату в формате ДД.ММ.ГГГГ", "Ошибка");
                 return;
+            }
+            DateTime enteredDate = DateTime.ParseExact(DateObslText.Text, "dd.MM.yyyy", null);
+
+            // Ограничения
+            DateTime minDate = new DateTime(2000, 1, 1);
+            DateTime maxDate = DateTime.Today.AddYears(1); // Дата ровно через год от текущего дня
+
+            if (enteredDate < minDate)
+            {
+                MessageBox.Show($"Дата не может быть раньше {minDate:dd.MM.yyyy}", "Ошибка");
+                DateObslText.Text = string.Empty;
+                return;
+            }
+
+            if (enteredDate > maxDate)
+            {
+                MessageBox.Show($"Дата не может быть позже {maxDate:dd.MM.yyyy}", "Ошибка");
+                DateObslText.Text = string.Empty;
             }
 
             Maintenance selectedMaintenance = MaintenanceWatch.SelectedItem as Maintenance;
