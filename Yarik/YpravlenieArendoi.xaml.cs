@@ -48,43 +48,38 @@ namespace Yarik
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            string startDate = StartDate.Text;
-            string endDate = EndDate.Text;
-            string reservationDate = DateRezervation.Text;
-            string totalCost = CheckBill.Text;
+            string startDateText = StartDate.Text.Trim();
+            string endDateText = EndDate.Text.Trim();
+            string reservationDateText = DateRezervation.Text.Trim();
+            string totalCost = CheckBill.Text.Trim();
+
             var selectedClient = Client.SelectedItem as Clients;
             var selectedEquipment = Oborudovanie.SelectedItem as Equipment;
 
-            if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(endDate) || string.IsNullOrEmpty(totalCost) || selectedClient == null || selectedEquipment == null)
+            if (string.IsNullOrEmpty(startDateText) || string.IsNullOrEmpty(endDateText) || string.IsNullOrEmpty(totalCost) ||
+                selectedClient == null || selectedEquipment == null)
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
                 return;
             }
 
-            if (!IsValidDate(startDate) || !IsValidDate(endDate) || !IsValidDate(reservationDate))
+            string dateFormat = @"^\d{2}\.\d{2}\.\d{4}$";
+            if (!Regex.IsMatch(startDateText, dateFormat) ||
+                !Regex.IsMatch(endDateText, dateFormat))
             {
-                MessageBox.Show("Некорректный формат даты. Должно быть в формате: ДД.ММ.ГГГГ", "Ошибка");
+                MessageBox.Show("Некорректный формат даты. Должно быть: ДД.ММ.ГГГГ", "Ошибка");
                 return;
             }
 
-            DateTime enteredDate = DateTime.ParseExact(StartDate.Text, "dd.MM.yyyy", null);
-            DateTime enteredDate1 = DateTime.ParseExact(EndDate.Text, "dd.MM.yyyy", null);
-            DateTime enteredDate2 = DateTime.ParseExact(DateRezervation.Text, "dd.MM.yyyy", null);
+            DateTime startDate = DateTime.ParseExact(startDateText, "dd.MM.yyyy", null);
+            DateTime endDate = DateTime.ParseExact(endDateText, "dd.MM.yyyy", null);
+            DateTime currentDate = DateTime.Now;
 
-            DateTime minDate = DateTime.Today.AddYears(-1);
-            DateTime maxDate = DateTime.Today.AddYears(1);
-
-            if (enteredDate < minDate || enteredDate1 < minDate || enteredDate2 < minDate)
+            if (startDate < currentDate.AddYears(-1) || endDate < currentDate.AddYears(-1) ||
+                startDate > currentDate.AddYears(1) || endDate > currentDate.AddYears(1))
             {
-                MessageBox.Show($"Дата не может быть раньше {minDate:dd.MM.yyyy}", "Ошибка");
-                StartDate.Text = string.Empty;
+                MessageBox.Show("Дата аренды не может быть старше или новее, чем на год относительно текущей даты.", "Ошибка");
                 return;
-            }
-
-            if (enteredDate < maxDate || enteredDate1 < maxDate || enteredDate2 < maxDate)
-            {
-                MessageBox.Show($"Дата не может быть позже {maxDate:dd.MM.yyyy}", "Ошибка");
-                StartDate.Text = string.Empty;
             }
 
             if (!decimal.TryParse(totalCost, out decimal cost) || cost <= 0)
@@ -93,13 +88,13 @@ namespace Yarik
                 return;
             }
 
-            RentalsStatus rentalStatus = GetRentalStatus(startDate, endDate);
+            RentalsStatus rentalStatus = GetRentalStatus(startDateText, endDateText);
 
             Rentals newRental = new Rentals
             {
-                RentalDate = startDate,
-                ReturnDate = endDate,
-                ReservationDate = reservationDate,
+                RentalDate = startDateText,
+                ReturnDate = endDateText,
+                ReservationDate = reservationDateText,
                 TotalCost = cost,
                 Clients_ID = selectedClient.ID_Clients,
                 Equipment_ID = selectedEquipment.ID_Equipment,
@@ -108,10 +103,11 @@ namespace Yarik
 
             yp.Rentals.Add(newRental);
             yp.SaveChanges();
-            GenerateContract(newRental);
             RentalsWatch.ItemsSource = yp.Rentals.ToList();
+            GenerateContract(newRental);
             Clear(null, null);
         }
+
 
 
 
@@ -140,6 +136,17 @@ namespace Yarik
             if (!IsValidDate(startDate) || !IsValidDate(endDate) || !IsValidDate(reservationDate))
             {
                 MessageBox.Show("Некорректный формат даты", "Ошибка");
+                return;
+            }
+
+            DateTime startDateTime = DateTime.ParseExact(startDate, "dd.MM.yyyy", null);
+            DateTime endDateTime = DateTime.ParseExact(endDate, "dd.MM.yyyy", null);
+            DateTime currentDate = DateTime.Now;
+
+            if (startDateTime < currentDate.AddYears(-1) || endDateTime < currentDate.AddYears(-1) ||
+                startDateTime > currentDate.AddYears(1) || endDateTime > currentDate.AddYears(1))
+            {
+                MessageBox.Show("Дата аренды не может быть старше или новее, чем на год относительно текущей даты.", "Ошибка");
                 return;
             }
 
@@ -312,13 +319,14 @@ namespace Yarik
 
         private void RentalsPerenos(object sender, SelectionChangedEventArgs e)
         {
+
             if (RentalsWatch.SelectedItem is Rentals selectedRent)
             {
                 StartDate.Text = selectedRent.RentalDate;
                 EndDate.Text = selectedRent.ReturnDate;
                 DateRezervation.Text = selectedRent.ReservationDate;
                 CheckBill.Text = selectedRent.TotalCost.ToString();
-                Client.Text = selectedRent.Clients.ToString();
+                Client.Text = selectedRent.Clients.Email.ToString();
                 Oborudovanie.SelectedValue = selectedRent.Equipment_ID;
             }
         }
